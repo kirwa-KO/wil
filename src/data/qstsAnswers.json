@@ -1,0 +1,9 @@
+{
+	"data": [
+		{
+			"id": "1",
+			"qst": "what this statement    \n```python\nprint(\"this is kirwa speaking\")\n```\n will print",
+			"answer": "Wil is an open-source, Node.js based, Headless CMS that saves developers a lot of development time while giving them the freedom to use their favorite tools and frameworks."
+		}
+	]
+}

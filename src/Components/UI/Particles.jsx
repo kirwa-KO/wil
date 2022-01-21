@@ -1,12 +1,14 @@
 import Particles from "react-tsparticles";
+import "./Particles.scss";
 
-function ParticlesComponent() {
+function ParticlesComponent(props) {
+	const pathsColor = props.lightMode ? "#eaf2fa" : "#344b80";
 	return (
 		<Particles
 				params={{
 					particles: {
 						number: { value: 80, density: { enable: true, value_area: 800 } },
-						color: { value: "#344b80" },
+						color: { value: pathsColor },
 						shape: {
 							type: "circle",
 							stroke: { width: 0, color: "#000000" },
@@ -26,7 +28,7 @@ function ParticlesComponent() {
 						line_linked: {
 							enable: true,
 							distance: 150,
-							color: "#344b80",
+							color: pathsColor,
 							opacity: 0.4,
 							width: 1,
 						},
@@ -64,6 +66,7 @@ function ParticlesComponent() {
 					},
 					retina_detect: true
 				}}
+				className={`${props.lightMode ? "bg-darki" : ""}`}
 			/>
 	);
 }

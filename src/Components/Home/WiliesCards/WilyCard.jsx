@@ -1,7 +1,9 @@
 import { ReactComponent as PlusIcon } from "../../../assets/PlusIcon.svg";
 import { useState, useRef } from "react";
+import Markdown from "../../UI/Markdown";
+import "./WilyCard.scss";
 
-function WildCard(props) {
+function WilyCard(props) {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const toggleOpen = () => {
@@ -20,12 +22,14 @@ function WildCard(props) {
 								paddingBottom: "30px",
 						  }
 						: {
-								paddingBottom: "0px",
+								// paddingBottom: "0px",
 						  }
 				}
 				onClick={toggleOpen}
 			>
-				<h4>{props.qst}</h4>
+				<div className="qst-container">
+					<Markdown value={props.qst} />
+				</div>
 				<PlusIcon
 					width={26}
 					height={26}
@@ -33,7 +37,7 @@ function WildCard(props) {
 					style={
 						isOpen
 							? {
-								transform: "rotate(180deg)",
+									transform: "rotate(180deg)",
 							  }
 							: {
 									transfrom: "rotate(180deg)",
@@ -54,6 +58,7 @@ function WildCard(props) {
 						  }
 				}
 				ref={itemsLinkinMobileRef}
+				className="answer"
 			>
 				{props.answer}
 			</p>
@@ -61,4 +66,4 @@ function WildCard(props) {
 	);
 }
 
-export default WildCard;
+export default WilyCard;

@@ -1,0 +1,66 @@
+@import "../../../imports/colors";
+
+.wily {
+	background-color: rgba($color: $secondColor, $alpha: 0.8);
+	border-radius: 20px;
+	margin-bottom: 8px;
+	border: 1px solid $whiteColor;
+	transition: all 0.3s ease-in-out;
+	padding-bottom: 2rem;
+	&:hover {
+		background-color: $whiteColor;
+		border: 1px solid $mainColor;
+	}
+	.header {
+		padding: 2rem 2rem 0rem 2rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		transition: all 0.3s ease-in-out;
+		cursor: pointer;
+		h4 {
+			font-size: 20px;
+			line-height: 22px;
+			font-weight: 500;
+			color: $mainColor;
+		}
+		.qst-container {
+			
+		}
+		svg {
+			cursor: pointer;
+			transition: all 0.3s ease-in-out;
+		}
+	}
+	.answer {
+		padding-left: 2rem;
+		font-size: 18px;
+		line-height: 1.6;
+		margin: 0;
+		overflow: hidden;
+		transition: all 0.3s ease-in-out;
+	}
+}
+
+
+.dark-mode {
+	.wily {
+		background-color: rgba($color: $blackBg, $alpha: 0.95);
+		border: 1px solid $blackColor;
+		&:hover {
+			background-color: rgba($color: $blackColor, $alpha: 1);
+			border: 1px solid $secondColor;
+		}
+		.header {
+			h4 {
+				color: $secondColor;
+			}
+			svg path {
+				fill: $secondColor;
+			}
+		}
+		p {
+			color: $secondColor;
+		}
+	}
+}

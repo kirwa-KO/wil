@@ -5,6 +5,7 @@
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 	box-shadow: 1px 1px 12px rgb(0 0 0 / 15%);
+	transition: all .3s ease-in-out;
 	.nav-items {
 		display: flex;
 		align-items: center;
@@ -47,6 +48,41 @@
 			}
 			button:last-child {
 				margin-left: 2rem;
+			}
+		}
+	}
+}
+
+.dark-mode {
+	.navbar-container {
+		background-color: rgba($color: $blackBg, $alpha: 0.95);
+		.nav-items {
+			svg path {
+				fill: $secondColor;
+			}
+			.right-items {
+				.params {
+					.light-mode,
+					.show-particuler {
+						border: 2px solid $secondColor;
+						.spot {
+							background-color: $secondColor;
+						}
+					}
+				}
+				a {
+					color: $secondColor;
+				}
+				button {
+					background-color: rgba($color: $blackBg, $alpha: 0.95);
+					border: 2px solid $secondColor;
+					color: $secondColor;
+					// border: none;
+				}
+				button:hover {
+					background-color: $blackColor;
+					// color: rgba($color: $secondColor, $alpha: .8);
+				}
 			}
 		}
 	}

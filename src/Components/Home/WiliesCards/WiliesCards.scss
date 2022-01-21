@@ -3,41 +3,6 @@
 .wilies-container {
 	margin-top: 3rem;
 	margin-bottom: 3rem;
-	padding: 0;
-	.wily {
-		background-color: rgba($color: $secondColor, $alpha: 0.8);
-		padding: 2rem;
-		border-radius: 20px;
-		margin-bottom: 8px;
-		border: 1px solid $whiteColor;
-		transition: all 0.3s ease-in-out;
-		&:hover {
-			background-color: $whiteColor;
-			border: 1px solid $mainColor;
-		}
-		.header {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			transition: all 0.3s ease-in-out;
-			cursor: pointer;
-			h4 {
-				font-size: 20px;
-				line-height: 22px;
-				font-weight: 500;
-				color: $mainColor;
-			}
-			svg {
-				cursor: pointer;
-				transition: all 0.3s ease-in-out;
-			}
-		}
-		p {
-			font-size: 18px;
-			line-height: 1.6;
-			margin: 0;
-			overflow: hidden;
-			transition: all 0.3s ease-in-out;
-		}
-	}
+	padding-left: 0;
+	padding-right: 0;
 }

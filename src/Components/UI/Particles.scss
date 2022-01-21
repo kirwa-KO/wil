@@ -1,0 +1,17 @@
+@import "../../imports/colors";
+
+.bg-darki {
+	background-color: $blackColor;
+	transition: all .3s ease-in-out;
+
+}
+
+#tsparticles {
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	margin: 0;
+	z-index: -1;
+}

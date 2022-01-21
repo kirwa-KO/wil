@@ -12,6 +12,7 @@
 	border-radius: 20px;
 	box-shadow: 1px 10px 12px rgb(0 0 0 / 15%);
 	background-color: $whiteColor;
+	transition: all .3s ease-in-out;
 	* {
 		width: 100%;
 	}
@@ -27,9 +28,9 @@
 		border-radius: 10px;
 		border: 1px solid $mainColor;
 		border: none;
-		background-color: rgb(243, 249, 253);;
-		border: 1px solid rgb(243, 249, 253);;
-		transition: all .3s ease-in-out;
+		background-color: rgb(243, 249, 253);
+		border: 1px solid rgb(243, 249, 253);
+		transition: all 0.3s ease-in-out;
 		color: rgb(158, 167, 184);
 	}
 	input::placeholder,
@@ -43,9 +44,37 @@
 	}
 	.answer {
 		// overflow: hidden;
-		transition: all .3s ease-in-out;
+		transition: all 0.3s ease-in-out;
 		button {
 			width: fit-content;
+		}
+	}
+}
+
+.dark-mode {
+	.main-inputs {
+		border: 1px solid $secondColor;
+		background-color: $blackBg;
+		* {
+			width: 100%;
+		}
+		label {
+			color: $secondColor;
+		}
+		input,
+		.answer textarea {
+			background-color: #191B20;
+			transition: all 0.3s ease-in-out;
+			color: #fff;
+			border: 1px solid #808191;
+		}
+		input::placeholder,
+		.answer textarea::placeholder {
+			color: #808191;
+		}
+		input:focus,
+		.answer textarea:focus {
+			border: 1px solid rgb(243, 249, 253);
 		}
 	}
 }
