@@ -1,0 +1,51 @@
+@import "../../../imports/colors";
+
+.main-inputs {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 3rem;
+	padding: 2rem;
+	// background-color: $secondColor;
+	border: 1px solid $mainColor;
+	width: 100%;
+	border-radius: 20px;
+	box-shadow: 1px 10px 12px rgb(0 0 0 / 15%);
+	background-color: $whiteColor;
+	* {
+		width: 100%;
+	}
+	label {
+		color: $mainColor;
+		font-weight: 700;
+		padding-left: 5px;
+	}
+	input,
+	.answer textarea {
+		margin-bottom: 1rem;
+		padding: 0.5rem 1rem;
+		border-radius: 10px;
+		border: 1px solid $mainColor;
+		border: none;
+		background-color: rgb(243, 249, 253);;
+		border: 1px solid rgb(243, 249, 253);;
+		transition: all .3s ease-in-out;
+		color: rgb(158, 167, 184);
+	}
+	input::placeholder,
+	.answer textarea::placeholder {
+		color: rgb(158, 167, 184);
+	}
+	input:focus,
+	.answer textarea:focus {
+		outline: none;
+		border: 1px solid $mainColor;
+	}
+	.answer {
+		// overflow: hidden;
+		transition: all .3s ease-in-out;
+		button {
+			width: fit-content;
+		}
+	}
+}

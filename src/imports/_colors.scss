@@ -1,0 +1,22 @@
+$mainColor: #1d1b84;
+$secondColor: #eaf2fa;
+$whiteColor: #fff;
+
+
+.main-btn-outline,
+.main-btn {
+	font-weight: 600;
+	padding: 0.5rem 1rem;
+	border-color: $mainColor;
+	border-radius: 10px;
+}
+
+.main-btn {
+	background-color: $mainColor;
+	color: $whiteColor;
+}
+
+.main-btn-outline {
+	color: $mainColor;
+	background-color: $whiteColor;
+}
