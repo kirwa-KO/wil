@@ -11,8 +11,7 @@ function MainInput() {
 
 	const onChangeQstInput = (event) => {
 		setShowAnswerInput(true);
-		if (event.target.value == "")
-			setShowAnswerInput(false);
+		if (event.target.value == "") setShowAnswerInput(false);
 	};
 
 	const itemsLinkinMobileRef = useRef();
@@ -20,7 +19,11 @@ function MainInput() {
 	return (
 		<form className="main-inputs container" onSubmit={onSubmitForm}>
 			<label htmlFor="">Question</label>
-			<input onChange={onChangeQstInput} type="text" placeholder="Question..." />
+			<textarea
+				onChange={onChangeQstInput}
+				cols="30" rows="5"
+				placeholder="Question..."
+			/>
 			<div
 				className="answer"
 				style={
@@ -29,11 +32,11 @@ function MainInput() {
 								height:
 									itemsLinkinMobileRef.current.scrollHeight +
 									"px",
-									overflow: "visible"
+								overflow: "visible",
 						  }
 						: {
 								height: "0px",
-								overflow: "hidden"
+								overflow: "hidden",
 						  }
 				}
 				ref={itemsLinkinMobileRef}

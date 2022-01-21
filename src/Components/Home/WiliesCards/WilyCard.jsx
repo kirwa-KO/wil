@@ -3,6 +3,14 @@ import { useState, useRef } from "react";
 import Markdown from "../../UI/Markdown";
 import "./WilyCard.scss";
 
+var options = {
+	day: "numeric",
+	month: "short", //to display the full name of the month
+	year: "numeric",
+};
+
+var date = new Date().toLocaleDateString("en", options);
+
 function WilyCard(props) {
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -45,7 +53,7 @@ function WilyCard(props) {
 					}
 				/>
 			</div>
-			<p
+			<div
 				style={
 					isOpen
 						? {
@@ -60,8 +68,16 @@ function WilyCard(props) {
 				ref={itemsLinkinMobileRef}
 				className="answer"
 			>
-				{props.answer}
-			</p>
+				<div className="date-and-btns">
+					<span className="date-btn">{date}</span>
+				</div>
+				<div className="content">
+					<div>
+						<Markdown value={props.answer} />
+					</div>
+					<div></div>
+				</div>
+			</div>
 		</div>
 	);
 }

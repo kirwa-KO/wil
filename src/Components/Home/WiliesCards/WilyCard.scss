@@ -34,11 +34,30 @@
 	}
 	.answer {
 		padding-left: 2rem;
-		font-size: 18px;
-		line-height: 1.6;
+		padding-right: 2rem;
+		// font-size: 18px;
+		// line-height: 1.6;
 		margin: 0;
 		overflow: hidden;
 		transition: all 0.3s ease-in-out;
+		position: relative;
+		.date-and-btns {
+			margin-left: auto;
+			font-size: 0.6rem;
+			display: flex;
+			justify-content: flex-end;
+			.date-btn {
+				background-color: $mainColor;
+				color: $whiteColor;
+				padding: 3px 8px;
+				display: inline-flex;
+				border-radius: 10px;
+			}
+		}
+		.content {
+			display: flex;
+
+		}
 	}
 }
 

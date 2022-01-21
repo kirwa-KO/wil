@@ -1,4 +1,3 @@
-
 import "./WiliesCards.scss";
 import WilyCard from "./WilyCard";
 import QstsData from "../../../data/qstsAnswers.json";
