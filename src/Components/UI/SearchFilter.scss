@@ -1,0 +1,14 @@
+@import "../../imports/colors";
+
+.search-container {
+	padding: 0;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	.react-select {
+		width: 40%;
+		.react-select-pre__control {
+			background-color: $secondColor;
+			border-color: $mainColor;
+		}
+	}
+}

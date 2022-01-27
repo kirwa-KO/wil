@@ -5,5 +5,16 @@
 			"qst": "what this statement \n```python\nprint(\"this is kirwa speaking\")\n```\n will print something \n\n ster akhor",
 			"answer": "what this statement    \n```python\nprint(\"this is kirwa speaking\")\n```\n will print"
 		}
+	],
+	"tags": [
+		{ "value": "javascript", "label": "javascript" },
+		{ "value": "react", "label": "react" },
+		{ "value": "redux", "label": "redux" },
+		{ "value": "coding", "label": "coding" },
+		{ "value": "node", "label": "node" },
+		{ "value": "express", "label": "express" },
+		{ "value": "mongodb", "label": "mongodb" },
+		{ "value": "mysql", "label": "mysql" },
+		{ "value": "mongoose", "label": "mongoose" }
 	]
 }

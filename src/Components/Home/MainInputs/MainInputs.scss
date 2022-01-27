@@ -12,7 +12,7 @@
 	border-radius: 20px;
 	box-shadow: 1px 10px 12px rgb(0 0 0 / 15%);
 	background-color: $whiteColor;
-	transition: all .3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 	label,
 	textarea,
 	.answer {
@@ -41,8 +41,7 @@
 		color: rgb(158, 167, 184);
 	}
 	input:focus,
-	textarea:focus,
-	.react-select .react-select-pre__control:focus {
+	textarea:focus {
 		outline: none !important;
 		border: 1px solid $mainColor;
 	}
@@ -53,27 +52,29 @@
 			width: fit-content;
 		}
 	}
-	.react-select {
-		.react-select-pre__control {
+}
 
+.react-select {
+	.css-1rhbuit-multiValue {
+		background-color: hsl(0deg 0% 100%);
+		color: white;
+		border: 1px solid #b8c0cd;
+		border-radius: 5px;
+		svg path {
+			color: #b8c0cd;
 		}
-		.css-1rhbuit-multiValue {
-			background-color: hsl(0deg 0% 100%);
-			color: white;
-			border: 1px solid #b8c0cd;
-			border-radius: 5px;
+		.react-select-pre__multi-value__remove:hover {
+			background-color: $dangerColor;
 			svg path {
-				color: #b8c0cd;
-			}
-			.react-select-pre__multi-value__remove:hover {
-				background-color: $dangerColor;
-				svg path {
-					color: white;
-				}
+				color: white;
 			}
 		}
 	}
-	
+}
+
+.react-select .react-select-pre__control:focus {
+	outline: none !important;
+	border: 1px solid $mainColor;
 }
 
 .dark-mode {
@@ -88,7 +89,7 @@
 		}
 		input,
 		textarea {
-			background-color: #191B20;
+			background-color: #191b20;
 			transition: all 0.3s ease-in-out;
 			color: #fff;
 			border: 1px solid #808191;

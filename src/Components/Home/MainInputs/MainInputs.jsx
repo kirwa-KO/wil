@@ -1,6 +1,7 @@
 import "./MainInputs.scss";
 import { useState, useRef } from "react";
 import CreatableSelect from "react-select/creatable";
+import Tags from "../../../data/qstsAnswers.json";
 
 let answerSectionHeight = null;
 
@@ -75,7 +76,7 @@ function MainInput() {
 						options={
 							selectedOption.length >= maxOptions
 								? selectedOption
-								: suggestesTags
+								: Tags.tags
 						}
 						styles={style}
 						className="react-select"
@@ -95,16 +96,5 @@ function MainInput() {
 	);
 }
 
-var suggestesTags = [
-	{ value: "javascript", label: "javascript" },
-	{ value: "react", label: "react" },
-	{ value: "redux", label: "redux" },
-	{ value: "coding", label: "coding" },
-	{ value: "node", label: "node" },
-	{ value: "express", label: "express" },
-	{ value: "mongodb", label: "mongodb" },
-	{ value: "mysql", label: "mysql" },
-	{ value: "mongoose", label: "mongoose" },
-];
 
 export default MainInput;

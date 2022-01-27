@@ -4,6 +4,7 @@ import MainInputs from "../Components/Home/MainInputs/MainInputs";
 import WiliesCards from "../Components/Home/WiliesCards/WiliesCards";
 import { useContext } from "react";
 import AuthContext from "../store/auth-context";
+import SearchFilter from "../Components/UI/SearchFilter";
 
 function Home() {
 	const isloggedIn = true;
@@ -36,6 +37,7 @@ function Home() {
 			<NavBar isloggedIn={isloggedIn} />
 			{authCtx.showParticuler && <ParticlesComponent lightMode={authCtx.lightMode} />}
 			<MainInputs />
+			<SearchFilter />
 			<WiliesCards wilies={wilies} />
 		</div>
 	);
