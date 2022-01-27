@@ -5,7 +5,10 @@ import Tags from "../../../data/qstsAnswers.json";
 
 let answerSectionHeight = null;
 
-const maxOptions = 5;
+const maxOptions = Number(import.meta.env.VITE_MAX_TAGS);
+
+const maxQstChars = Number(import.meta.env.VITE_MAX_QST_CHARS);
+const maxAnswerChars = Number(import.meta.env.VITE_MAX_ANSWER_CHARS);
 
 const style = {
 	control: (base) => ({
@@ -47,6 +50,7 @@ function MainInput() {
 				cols="30"
 				rows="5"
 				placeholder="Question..."
+				maxLength={maxQstChars}
 			/>
 			<div
 				className="answer"
@@ -68,6 +72,7 @@ function MainInput() {
 					cols="30"
 					rows="10"
 					placeholder="Answer..."
+					maxLength={maxAnswerChars}
 				></textarea>
 				<div className="position-relative">
 					<CreatableSelect
@@ -95,6 +100,5 @@ function MainInput() {
 		</form>
 	);
 }
-
 
 export default MainInput;
