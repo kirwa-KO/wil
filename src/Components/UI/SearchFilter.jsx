@@ -20,6 +20,19 @@ const style = {
 function SearchFilter() {
 	const [selectedOption, setSelectedOption] = useState(null);
 	const tags = Tags.tags;
+	const [sort, setSort] = useState("");
+
+	const changeSortHandler = () => {
+		setSort(prevSort => {
+			if (prevSort === "")
+				return "asc";
+			else if (prevSort === "asc")
+				return "desc";
+			else
+				return "";
+		});
+	}
+
 
 	return (
 		<div className="search-container container">
@@ -33,6 +46,11 @@ function SearchFilter() {
 				classNamePrefix="react-select-pre"
 				placeholder="Search by tags "
 			/>
+			<div className="sort-date" onClick={changeSortHandler}>
+				{ sort === "" && <span>Sort by date</span> }
+				{ sort === "asc" && <span>Ascending</span> }
+				{ sort === "desc" && <span>Descending</span> }
+			</div>
 		</div>
 	);
 }
