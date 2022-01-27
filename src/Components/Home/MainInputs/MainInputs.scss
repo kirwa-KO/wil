@@ -13,7 +13,9 @@
 	box-shadow: 1px 10px 12px rgb(0 0 0 / 15%);
 	background-color: $whiteColor;
 	transition: all .3s ease-in-out;
-	* {
+	label,
+	textarea,
+	.answer {
 		width: 100%;
 	}
 	label {
@@ -22,12 +24,13 @@
 		padding-left: 5px;
 	}
 	input,
-	textarea {
+	textarea,
+	.react-select .react-select-pre__control {
 		margin-bottom: 1rem;
 		padding: 0.5rem 1rem;
 		border-radius: 10px;
-		border: 1px solid $mainColor;
-		border: none;
+		// border: 1px solid $mainColor;
+		// border: none;
 		background-color: rgb(243, 249, 253);
 		border: 1px solid rgb(243, 249, 253);
 		transition: all 0.3s ease-in-out;
@@ -38,8 +41,9 @@
 		color: rgb(158, 167, 184);
 	}
 	input:focus,
-	textarea:focus {
-		outline: none;
+	textarea:focus,
+	.react-select .react-select-pre__control:focus {
+		outline: none !important;
 		border: 1px solid $mainColor;
 	}
 	.answer {
@@ -49,6 +53,27 @@
 			width: fit-content;
 		}
 	}
+	.react-select {
+		.react-select-pre__control {
+
+		}
+		.css-1rhbuit-multiValue {
+			background-color: hsl(0deg 0% 100%);
+			color: white;
+			border: 1px solid #b8c0cd;
+			border-radius: 5px;
+			svg path {
+				color: #b8c0cd;
+			}
+			.react-select-pre__multi-value__remove:hover {
+				background-color: $dangerColor;
+				svg path {
+					color: white;
+				}
+			}
+		}
+	}
+	
 }
 
 .dark-mode {

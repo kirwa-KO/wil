@@ -7,12 +7,13 @@
 	border: 1px solid $whiteColor;
 	transition: all 0.3s ease-in-out;
 	padding-bottom: 2rem;
+	padding-top: 1rem;
 	&:hover {
 		background-color: $whiteColor;
 		border: 1px solid $mainColor;
 	}
 	.header {
-		padding: 2rem 2rem 0rem 2rem;
+		padding: 1rem 2rem 0rem 2rem;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -25,12 +26,20 @@
 			color: $mainColor;
 		}
 		.qst-container {
-			
 		}
 		svg {
 			cursor: pointer;
 			transition: all 0.3s ease-in-out;
 		}
+	}
+	.date-label {
+		padding-left: 2rem;
+		font-size: 13px;
+		color: #7a7a7a;
+	}
+	hr {
+		width: 94%;
+		// margin-bottom: 2rem;
 	}
 	.answer {
 		padding-left: 2rem;
@@ -46,21 +55,30 @@
 			font-size: 0.6rem;
 			display: flex;
 			justify-content: flex-end;
-			.date-btn {
-				background-color: $mainColor;
-				color: $whiteColor;
-				padding: 3px 8px;
-				display: inline-flex;
-				border-radius: 10px;
+			// margin-top: 1rem;
+			// margin-bottom: 1rem;
+			.other-btns {
+				button {
+					background-color: $dangerColor;
+					color: $whiteColor;
+					font-weight: bold;
+					border-radius: 10px;
+					padding: 0.5rem 1rem;
+					border: none;
+				}
+				button:first-child {
+					background-color: $blackColor;
+				}
+				button:last-child {
+					margin-left: 8px;
+				}
 			}
 		}
 		.content {
 			display: flex;
-
 		}
 	}
 }
-
 
 .dark-mode {
 	.wily {

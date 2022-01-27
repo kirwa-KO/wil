@@ -1,6 +1,17 @@
 import "./MainInputs.scss";
-import Autocomplete from "../../UI/AutoComplete";
 import { useState, useRef } from "react";
+import CreatableSelect from "react-select/creatable";
+
+let answerSectionHeight = null;
+
+const maxOptions = 5;
+
+const style = {
+	control: (base) => ({
+		...base,
+		boxShadow: base.boxShadow ? "0 0 0 1px #1d1b84" : undefined,
+	}),
+};
 
 function MainInput() {
 	const onSubmitForm = (event) => {
@@ -9,6 +20,8 @@ function MainInput() {
 
 	const [showAnswerInput, setShowAnswerInput] = useState(false);
 
+	const [selectedOption, setSelectedOption] = useState([]);
+
 	const onChangeQstInput = (event) => {
 		setShowAnswerInput(true);
 		if (event.target.value == "") setShowAnswerInput(false);
@@ -16,12 +29,22 @@ function MainInput() {
 
 	const itemsLinkinMobileRef = useRef();
 
+	if (
+		itemsLinkinMobileRef &&
+		itemsLinkinMobileRef.current &&
+		answerSectionHeight === null
+	) {
+		answerSectionHeight = itemsLinkinMobileRef.current.scrollHeight;
+	}
+	const isValidNewOption = (inputValue, selectValue) =>
+		inputValue.length > 0 && selectValue.length < maxOptions;
 	return (
 		<form className="main-inputs container" onSubmit={onSubmitForm}>
 			<label htmlFor="">Question</label>
 			<textarea
 				onChange={onChangeQstInput}
-				cols="30" rows="5"
+				cols="30"
+				rows="5"
 				placeholder="Question..."
 			/>
 			<div
@@ -29,9 +52,7 @@ function MainInput() {
 				style={
 					showAnswerInput
 						? {
-								height:
-									itemsLinkinMobileRef.current.scrollHeight +
-									"px",
+								height: answerSectionHeight + "px",
 								overflow: "visible",
 						  }
 						: {
@@ -48,7 +69,25 @@ function MainInput() {
 					placeholder="Answer..."
 				></textarea>
 				<div className="position-relative">
-					<Autocomplete suggestions={suggestesTags} />
+					<CreatableSelect
+						isMulti
+						onChange={setSelectedOption}
+						options={
+							selectedOption.length >= maxOptions
+								? selectedOption
+								: suggestesTags
+						}
+						styles={style}
+						className="react-select"
+						classNamePrefix="react-select-pre"
+						placeholder="coding, javascript, react, redux, ..."
+						noOptionsMessage={() => {
+							return selectedOption.length === maxOptions
+								? "You have reached the max tags"
+								: "No tags available";
+						}}
+						isValidNewOption={isValidNewOption}
+					/>
 				</div>
 				<button className="main-btn">Add a wily</button>
 			</div>
@@ -57,17 +96,15 @@ function MainInput() {
 }
 
 var suggestesTags = [
-	"javascript",
-	"reactjs",
-	"nodejs",
-	"mongodb",
-	"expressjs",
-	"html",
-	"css",
-	"sass",
-	"bootstrap",
-	"webpack",
-	"git",
+	{ value: "javascript", label: "javascript" },
+	{ value: "react", label: "react" },
+	{ value: "redux", label: "redux" },
+	{ value: "coding", label: "coding" },
+	{ value: "node", label: "node" },
+	{ value: "express", label: "express" },
+	{ value: "mongodb", label: "mongodb" },
+	{ value: "mysql", label: "mysql" },
+	{ value: "mongoose", label: "mongoose" },
 ];
 
 export default MainInput;

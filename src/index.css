@@ -17,3 +17,8 @@ code {
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif !important;
 }
+
+p,
+pre {
+	margin-bottom: 0.75rem;
+}

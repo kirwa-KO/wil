@@ -22,6 +22,7 @@ function WilyCard(props) {
 
 	return (
 		<div className="wily">
+			<span className="date-label">twelve • {date}</span>
 			<div
 				className="header"
 				style={
@@ -53,6 +54,7 @@ function WilyCard(props) {
 					}
 				/>
 			</div>
+			{ isOpen && <hr /> }
 			<div
 				style={
 					isOpen
@@ -68,14 +70,17 @@ function WilyCard(props) {
 				ref={itemsLinkinMobileRef}
 				className="answer"
 			>
-				<div className="date-and-btns">
-					<span className="date-btn">{date}</span>
-				</div>
 				<div className="content">
 					<div>
 						<Markdown value={props.answer} />
 					</div>
 					<div></div>
+				</div>
+				<div className="date-and-btns">
+					<div className="other-btns">
+						<button>edit</button>
+						<button>delete</button>
+					</div>
 				</div>
 			</div>
 		</div>
