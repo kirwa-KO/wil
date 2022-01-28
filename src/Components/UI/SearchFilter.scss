@@ -24,3 +24,22 @@
 		cursor: pointer;
 	}
 }
+
+.dark-mode {
+	.search-container {
+		.react-select {
+			.react-select-pre__control {
+				background-color: $blackBg;
+				border-color: $secondColor;
+				input {
+					color: $whiteColor !important;
+				}
+			}
+		}
+		.sort-date {
+			background-color: $blackBg;
+			border: 1px solid $secondColor;
+			color: $whiteColor;
+		}
+	}
+}

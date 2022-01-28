@@ -1,3 +1,4 @@
+import Layout from "../Components/Layouts/Layout";
 import ParticlesComponent from "../Components/UI/Particles";
 import NavBar from "../Components/NavBar/NavBar";
 import MainInputs from "../Components/Home/MainInputs/MainInputs";
@@ -7,8 +8,6 @@ import AuthContext from "../store/auth-context";
 import SearchFilter from "../Components/UI/SearchFilter";
 
 function Home() {
-	const isloggedIn = true;
-
 	var wilies = [
 		{
 			question: "What is Wil?",
@@ -23,23 +22,13 @@ function Home() {
 	const authCtx = useContext(AuthContext);
 
 	return (
-		<div
-			className={`position-relative ${
-				authCtx.lightMode ? "dark-mode" : ""
-			}`}
-			style={
-				(authCtx.lightMode && !authCtx.showParticuler) ? {
-					backgroundColor: "#1F2128",
-					minHeight: "100vh"
-				} : {minHeight: "100vh"}
-			}
-		>
-			<NavBar isloggedIn={isloggedIn} />
-			{authCtx.showParticuler && <ParticlesComponent lightMode={authCtx.lightMode} />}
+		<Layout lightMode={authCtx.lightMode} showParticuler={authCtx.showParticuler}>
+			<NavBar />
+			<ParticlesComponent showParticuler={authCtx.showParticuler} lightMode={authCtx.lightMode} />
 			<MainInputs />
 			<SearchFilter />
 			<WiliesCards wilies={wilies} />
-		</div>
+		</Layout>
 	);
 }
 

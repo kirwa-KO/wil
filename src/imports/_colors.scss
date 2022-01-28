@@ -4,6 +4,8 @@ $whiteColor: #fff;
 $blackColor: #1F2128;
 $blackBg: #242731;
 $dangerColor: #f5365c;
+$lightSecondColor: #f3f9fd;
+$placeHolderColor: rgb(158, 167, 184);
 
 .main-btn-outline,
 .main-btn {
@@ -21,4 +23,8 @@ $dangerColor: #f5365c;
 .main-btn-outline {
 	color: $mainColor;
 	background-color: $whiteColor;
+}
+
+.ml-2rem {
+	margin-left: 2rem;
 }

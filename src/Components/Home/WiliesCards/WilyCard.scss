@@ -5,7 +5,7 @@
 	border-radius: 20px;
 	margin-bottom: 8px;
 	border: 1px solid $whiteColor;
-	transition: all 0.3s ease-in-out;
+	// transition: all 0.3s ease-in-out;
 	padding-bottom: 2rem;
 	padding-top: 1rem;
 	&:hover {
@@ -17,7 +17,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		transition: all 0.3s ease-in-out;
+		// transition: all 0.3s ease-in-out;
 		cursor: pointer;
 		h4 {
 			font-size: 20px;
@@ -29,7 +29,7 @@
 		}
 		svg {
 			cursor: pointer;
-			transition: all 0.3s ease-in-out;
+			// transition: all 0.3s ease-in-out;
 		}
 	}
 	.date-label {
@@ -39,24 +39,19 @@
 	}
 	hr {
 		width: 94%;
-		// margin-bottom: 2rem;
 	}
 	.answer {
 		padding-left: 2rem;
 		padding-right: 2rem;
-		// font-size: 18px;
-		// line-height: 1.6;
 		margin: 0;
 		overflow: hidden;
-		transition: all 0.3s ease-in-out;
+		// transition: all 0.3s ease-in-out;
 		position: relative;
 		.date-and-btns {
 			margin-left: auto;
 			font-size: 0.6rem;
 			display: flex;
 			justify-content: flex-end;
-			// margin-top: 1rem;
-			// margin-bottom: 1rem;
 			.other-btns {
 				button {
 					background-color: $dangerColor;
@@ -98,6 +93,21 @@
 		}
 		p {
 			color: $secondColor;
+		}
+		.date-label {
+			color: $secondColor;
+		}
+		hr {
+			background-color: $secondColor;
+		}
+		.answer {
+			.date-and-btns {
+				.other-btns {
+					button {
+						border: 2px solid $secondColor;
+					}
+				}
+			}
 		}
 	}
 }

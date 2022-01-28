@@ -5,7 +5,6 @@
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 	box-shadow: 1px 1px 12px rgb(0 0 0 / 15%);
-	transition: all .3s ease-in-out;
 	.nav-items {
 		display: flex;
 		align-items: center;
@@ -19,12 +18,10 @@
 					width: 52px;
 					height: 20px;
 					cursor: pointer;
-					// background-color: $secondColor;
 					border: 2px solid $mainColor;
 					border-radius: 50px;
 					display: flex;
 					align-items: center;
-					transition: all 0.3s ease;
 					.spot {
 						margin-left: 2px;
 						margin-right: 2px;
@@ -32,7 +29,6 @@
 						height: 14px;
 						background-color: $mainColor;
 						border-radius: 50%;
-						transition: all 0.3s ease-in-out;
 					}
 				}
 				.light-mode {
@@ -43,10 +39,6 @@
 				}
 			}
 			a {
-				font-weight: 500;
-				color: $mainColor;
-			}
-			button:last-child {
 				margin-left: 2rem;
 			}
 		}
@@ -77,11 +69,9 @@
 					background-color: rgba($color: $blackBg, $alpha: 0.95);
 					border: 2px solid $secondColor;
 					color: $secondColor;
-					// border: none;
 				}
 				button:hover {
 					background-color: $blackColor;
-					// color: rgba($color: $secondColor, $alpha: .8);
 				}
 			}
 		}

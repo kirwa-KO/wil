@@ -6,53 +6,44 @@
 	align-items: center;
 	margin-top: 3rem;
 	padding: 2rem;
-	// background-color: $secondColor;
 	border: 1px solid $mainColor;
 	width: 100%;
 	border-radius: 20px;
 	box-shadow: 1px 10px 12px rgb(0 0 0 / 15%);
 	background-color: $whiteColor;
-	transition: all 0.3s ease-in-out;
+	// transition: all 0.3s ease-in-out;
 	label,
 	textarea,
 	.answer {
 		width: 100%;
 	}
-	label {
-		color: $mainColor;
-		font-weight: 700;
-		padding-left: 5px;
-	}
-	input,
+}
+
+label {
+	color: $mainColor;
+	font-weight: 700;
+	padding-left: 5px;
+}
+input,
 	textarea,
 	.react-select .react-select-pre__control {
 		margin-bottom: 1rem;
 		padding: 0.5rem 1rem;
 		border-radius: 10px;
-		// border: 1px solid $mainColor;
-		// border: none;
-		background-color: rgb(243, 249, 253);
-		border: 1px solid rgb(243, 249, 253);
-		transition: all 0.3s ease-in-out;
-		color: rgb(158, 167, 184);
+		background-color: $lightSecondColor;
+		border: 1px solid $lightSecondColor;
+		// transition: all 0.3s ease-in-out;
+		color: $placeHolderColor;
 	}
 	input::placeholder,
 	textarea::placeholder {
-		color: rgb(158, 167, 184);
+		color: $placeHolderColor;
 	}
 	input:focus,
 	textarea:focus {
 		outline: none !important;
 		border: 1px solid $mainColor;
 	}
-	.answer {
-		// overflow: hidden;
-		transition: all 0.3s ease-in-out;
-		button {
-			width: fit-content;
-		}
-	}
-}
 
 .react-select {
 	.css-1rhbuit-multiValue {
@@ -81,26 +72,29 @@
 	.main-inputs {
 		border: 1px solid $secondColor;
 		background-color: $blackBg;
-		* {
+		label,
+		textarea,
+		.answer {
 			width: 100%;
 		}
-		label {
-			color: $secondColor;
-		}
-		input,
-		textarea {
-			background-color: #191b20;
-			transition: all 0.3s ease-in-out;
-			color: #fff;
-			border: 1px solid #808191;
-		}
-		input::placeholder,
-		textarea::placeholder {
-			color: #808191;
-		}
-		input:focus,
-		textarea:focus {
-			border: 1px solid rgb(243, 249, 253);
-		}
+	}
+	label {
+		color: $secondColor;
+	}
+	input,
+	textarea,
+	.react-select .react-select-pre__control {
+		background-color: #191b20;
+		// transition: all 0.3s ease-in-out;
+		color: #fff !important;
+		border: 1px solid #808191;
+	}
+	input::placeholder,
+	textarea::placeholder {
+		color: #808191;
+	}
+	input:focus,
+	textarea:focus {
+		border: 1px solid rgb(243, 249, 253);
 	}
 }

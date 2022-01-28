@@ -4,24 +4,29 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import AuthContext from "../../store/auth-context";
 
-function NavBar(props) {
-	const isloggedIn = props.isloggedIn;
-
+function NavBar() {
+	
 	const authCtx = useContext(AuthContext);
+	const isloggedIn = authCtx.isLoggedIn;
 
 	return (
 		<div className="navbar-container">
 			<nav className="container nav-items">
-				<Logo height={34} width={132} />
+				<Link to="/">
+					<Logo height={34} width={132} />
+				</Link>
 				{!isloggedIn && (
 					<div className="right-items">
-						<button className="main-btn-outline">Login</button>
-						<button className="main-btn">Sign up</button>
+						<Link to="/login">
+							<button className="main-btn-outline">Login</button>
+						</Link>
+						<Link to="/signup">
+							<button className="main-btn">Sign up</button>
+						</Link>
 					</div>
 				)}
 				{isloggedIn && (
 					<div className="right-items">
-						{/* <Link to="/wilies">My wilies</Link> */}
 						<div className="params">
 							<div
 								className="light-mode"
@@ -58,7 +63,7 @@ function NavBar(props) {
 								></div>
 							</div>
 						</div>
-						<button className="main-btn-outline">Logout</button>
+						<button className="main-btn-outline ml-2rem">Logout</button>
 					</div>
 				)}
 			</nav>
