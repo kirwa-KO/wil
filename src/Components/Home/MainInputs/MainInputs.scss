@@ -5,13 +5,12 @@
 	flex-direction: column;
 	align-items: center;
 	margin-top: 3rem;
-	padding: 2rem;
+	padding: 1.5rem 1rem;
 	border: 1px solid $mainColor;
 	width: 100%;
 	border-radius: 20px;
 	box-shadow: 1px 10px 12px rgb(0 0 0 / 15%);
 	background-color: $whiteColor;
-	// transition: all 0.3s ease-in-out;
 	label,
 	textarea,
 	.answer {

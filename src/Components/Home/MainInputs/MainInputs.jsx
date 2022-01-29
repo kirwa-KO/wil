@@ -2,6 +2,7 @@ import "./MainInputs.scss";
 import { useState, useRef } from "react";
 import CreatableSelect from "react-select/creatable";
 import Tags from "../../../data/qstsAnswers.json";
+import InputPreviewMarkdown from "../../UI/InputPreviewMarkdown";
 
 let answerSectionHeight = null;
 
@@ -21,17 +22,23 @@ const isValidNewOption = (inputValue, selectValue) =>
 	inputValue.length > 0 && selectValue.length < maxOptions;
 
 function MainInput() {
+	const [qstInput, setQstInput] = useState();
+	const [answerInput, setAnswerInput] = useState();
+	const [showAnswerInput, setShowAnswerInput] = useState(false);
+	const [selectedOption, setSelectedOption] = useState([]);
+
 	const onSubmitForm = (event) => {
 		event.preventDefault();
 	};
 
-	const [showAnswerInput, setShowAnswerInput] = useState(false);
-
-	const [selectedOption, setSelectedOption] = useState([]);
-
 	const onChangeQstInput = (event) => {
 		setShowAnswerInput(true);
 		if (event.target.value == "") setShowAnswerInput(false);
+		setQstInput(event.target.value);
+	};
+
+	const onChangeAnswerInput = (event) => {
+		setAnswerInput(event.target.value);
 	};
 
 	const itemsLinkinMobileRef = useRef();
@@ -49,13 +56,13 @@ function MainInput() {
 			onSubmit={onSubmitForm}
 		>
 			<label htmlFor="">Question</label>
-			<textarea
-				onChange={onChangeQstInput}
-				cols="30"
+			<InputPreviewMarkdown
+				onChangeInput={onChangeQstInput}
 				rows="5"
 				placeholder="Question..."
-				maxLength={maxQstChars}
-			/>
+				maxChars={maxQstChars}
+				value={qstInput}
+				/>
 			<div
 				className="answer"
 				style={
@@ -72,12 +79,14 @@ function MainInput() {
 				ref={itemsLinkinMobileRef}
 			>
 				<label htmlFor="">Answer</label>
-				<textarea
-					cols="30"
+				<InputPreviewMarkdown
+					onChangeInput={onChangeAnswerInput}
 					rows="10"
 					placeholder="Answer..."
-					maxLength={maxAnswerChars}
-				></textarea>
+					maxChars={maxAnswerChars}
+					value={answerInput}
+					className="ml-0"
+				/>
 				<div className="position-relative">
 					<CreatableSelect
 						isMulti

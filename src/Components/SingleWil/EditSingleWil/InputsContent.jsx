@@ -4,6 +4,8 @@ import CreatableSelect from "react-select/creatable";
 import Tags from "../../../data/qstsAnswers.json";
 import { useState } from "react";
 import { changeTagsShape } from "../../../utils/Heplers";
+import Markdown from "../../UI/Markdown";
+import InputPreviewMarkdown from "../../UI/InputPreviewMarkdown";
 
 const maxOptions = Number(import.meta.env.VITE_MAX_TAGS);
 const maxQstChars = Number(import.meta.env.VITE_MAX_QST_CHARS);
@@ -21,10 +23,19 @@ const isValidNewOption = (inputValue, selectValue) =>
 
 function InputsContent(props) {
 	var { wily } = props;
-
 	var tagsArrays = changeTagsShape(wily.tags);
 
+	const [qstInput, setQstInput] = useState(wily.qst);
+	const [answerInput, setAnswerInput] = useState(wily.answer);
 	const [selectedOption, setSelectedOption] = useState(tagsArrays);
+
+	const onChangeQstInput = (event) => {
+		setQstInput(event.target.value);
+	};
+
+	const onChangeAnswerInput = (event) => {
+		setAnswerInput(event.target.value);
+	};
 
 	return (
 		<div className="edit-container">
@@ -34,21 +45,20 @@ function InputsContent(props) {
 						twelve • {getFormatedDate(wily.date)}
 					</div>
 					<label htmlFor="">Question</label>
-					<textarea
-						// onChange={onChangeQstInput}
-						cols="30"
+					<InputPreviewMarkdown
+						onChangeInput={onChangeQstInput}
 						rows="8"
 						placeholder="Question..."
-						maxLength={maxQstChars}
-						value={wily.qst}
+						maxChars={maxQstChars}
+						value={qstInput}
 					/>
 					<label htmlFor="">Answer</label>
-					<textarea
-						cols="30"
+					<InputPreviewMarkdown
+						onChangeInput={onChangeAnswerInput}
 						rows="10"
 						placeholder="Answer..."
-						maxLength={maxAnswerChars}
-						value={wily.answer}
+						maxChars={maxAnswerChars}
+						value={answerInput}
 					/>
 					<div className="position-relative w-100">
 						<CreatableSelect

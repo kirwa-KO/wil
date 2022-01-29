@@ -17,8 +17,9 @@ function PreviewContent() {
 					className="col-6"
 					value={previewInput}
 					onChange={onChangeInputHandler}
+					placeholder="your markdown content..."
 				></textarea>
-				<div className="col-6 mardown-container">
+				<div className="col-6 markdown-container">
 					<Markdown value={previewInput} />
 				</div>
 			</div>

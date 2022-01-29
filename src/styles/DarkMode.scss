@@ -14,8 +14,9 @@
 	}
 	input,
 	textarea,
-	.react-select .react-select-pre__control {
-		background-color: #191b20;
+	.react-select .react-select-pre__control,
+	.markdown-container {
+		background-color: #191b20 !important;
 		color: #fff !important;
 		border: 1px solid #808191;
 	}
