@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function SignupInputs() {
 	return (
 		<div className="inputs-container">
-			<form className="container inputs">
+			<form className="container inputs bg-dark-darkmode">
 				<h4>Create your account</h4>
 				<label htmlFor="username">Username</label>
 				<input type="text" id="username" placeholder="username" />

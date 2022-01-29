@@ -1,0 +1,28 @@
+@import "../imports/colors";
+
+.main-btn-outline,
+.main-btn {
+	font-weight: 600;
+	padding: 0.5rem 1rem;
+	border-color: $mainColor;
+	border-radius: 10px;
+}
+
+.main-btn {
+	background-color: $mainColor;
+	color: $whiteColor;
+}
+
+.main-btn-outline {
+	color: $mainColor;
+	background-color: $whiteColor;
+}
+
+.ml-2rem {
+	margin-left: 2rem;
+}
+
+.date-label {
+	font-size: 13px;
+	color: #7a7a7a;
+}

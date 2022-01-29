@@ -3,7 +3,7 @@ import "./DocsContent.scss";
 function DocsContent() {
 	return (
 		<div className="content-container">
-			<div className="container content">
+			<div className="container content bg-dark-darkmode">
 				<h4>How to use Wil :</h4>
 				<p>
 					Lorem ipsum dolor sit, amet consectetur adipisicing elit.

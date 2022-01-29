@@ -17,6 +17,9 @@ const style = {
 	}),
 };
 
+const isValidNewOption = (inputValue, selectValue) =>
+	inputValue.length > 0 && selectValue.length < maxOptions;
+
 function MainInput() {
 	const onSubmitForm = (event) => {
 		event.preventDefault();
@@ -40,10 +43,11 @@ function MainInput() {
 	) {
 		answerSectionHeight = itemsLinkinMobileRef.current.scrollHeight;
 	}
-	const isValidNewOption = (inputValue, selectValue) =>
-		inputValue.length > 0 && selectValue.length < maxOptions;
 	return (
-		<form className="main-inputs container" onSubmit={onSubmitForm}>
+		<form
+			className="main-inputs container bg-dark-darkmode"
+			onSubmit={onSubmitForm}
+		>
 			<label htmlFor="">Question</label>
 			<textarea
 				onChange={onChangeQstInput}

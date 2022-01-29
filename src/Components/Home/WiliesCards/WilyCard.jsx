@@ -1,15 +1,9 @@
 import { ReactComponent as PlusIcon } from "../../../assets/PlusIcon.svg";
 import { useState, useRef } from "react";
 import Markdown from "../../UI/Markdown";
+import { Link } from "react-router-dom";
 import "./WilyCard.scss";
-
-var options = {
-	day: "numeric",
-	month: "short", //to display the full name of the month
-	year: "numeric",
-};
-
-var date = new Date().toLocaleDateString("en", options);
+import getFormatedDate from "../../../utils/FormatDate";
 
 function WilyCard(props) {
 	const [isOpen, setIsOpen] = useState(false);
@@ -18,26 +12,30 @@ function WilyCard(props) {
 		setIsOpen(!isOpen);
 	};
 
+	var { wily } = props;
+
 	const itemsLinkinMobileRef = useRef();
 
 	return (
-		<div className="wily">
-			<span className="date-label">twelve • {date}</span>
+		<div className="wily wily-container">
+			<span className="date-label">
+				twelve • {getFormatedDate(wily.date)}
+			</span>
 			<div
 				className="header"
-				style={
-					isOpen
-						? {
-								paddingBottom: "30px",
-						  }
-						: {
-								// paddingBottom: "0px",
-						  }
-				}
+				// style={
+				// 	isOpen
+				// 		? {
+				// 				paddingBottom: "30px",
+				// 		  }
+				// 		: {
+				// 				// paddingBottom: "0px",
+				// 		  }
+				// }
 				onClick={toggleOpen}
 			>
 				<div className="qst-container">
-					<Markdown value={props.qst} />
+					<Markdown value={wily.qst} />
 				</div>
 				<PlusIcon
 					width={26}
@@ -54,7 +52,25 @@ function WilyCard(props) {
 					}
 				/>
 			</div>
-			{ isOpen && <hr /> }
+			<div
+				className="tags-container"
+				style={
+					isOpen
+						? {
+								paddingBottom: "16px",
+						  }
+						: {
+								// paddingBottom: "0px",
+						  }
+				}
+			>
+				{wily.tags.map((tag, index) => (
+					<span key={index} className="tag">
+						{tag}
+					</span>
+				))}
+			</div>
+			{isOpen && <hr />}
 			<div
 				style={
 					isOpen
@@ -72,14 +88,25 @@ function WilyCard(props) {
 			>
 				<div className="content">
 					<div>
-						<Markdown value={props.answer} />
+						<Markdown value={wily.answer} />
 					</div>
 					<div></div>
 				</div>
-				<div className="date-and-btns">
-					<div className="other-btns">
-						<button>edit</button>
-						<button>delete</button>
+				<div className="btns-container">
+					<div className="control-btns">
+						<Link to={`/wil/${wily._id}`}>
+							<button className="brdr-2-dark">
+								open as page
+							</button>
+						</Link>
+						<Link to={`/edit/wil/${wily._id}`}>
+							<button className="brdr-2-dark edit-btn">
+								edit
+							</button>
+						</Link>
+						<button className="brdr-2-dark delete-btn">
+							delete
+						</button>
 					</div>
 				</div>
 			</div>

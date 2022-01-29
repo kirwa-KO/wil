@@ -5,6 +5,9 @@
 		background-color: $whiteColor;
 		margin-top: 5rem;
 		padding: 2rem;
+		border-radius: 10px;
+		border: 1px solid $mainColor;
+		box-shadow: 0 15px 35px 0 rgba(64, 68, 82, 0.08);
 		h4,
 		h5 {
 			margin-bottom: 1rem;

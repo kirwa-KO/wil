@@ -1,47 +1,21 @@
 @import "../imports/colors";
 
 .dark-mode {
-	.inputs-container {
-		.inputs {
-			background-color: $blackBg;
-			border: 1px solid $secondColor;
-			h4 {
-				color: $secondColor;
-			}
-		}
+	.bg-dark-darkmode {
+		background-color: $blackBg !important;
+		border: 1px solid $secondColor !important;
 	}
-}
-
-.dark-mode {
-	.content-container {
-		.content {
-			background-color: $blackBg;
-			border: 1px solid $secondColor;
-			border-radius: 10px;
-			h4,
-			h5 {
-				color: $secondColor;
-			}
-			p {
-				color: $secondColor;
-			}
-		}
-	}
-}
-
-.dark-mode {
-	.main-inputs {
-		border: 1px solid $secondColor;
-		background-color: $blackBg;
-	}
-	label {
-		color: $secondColor;
+	h4,
+	h5,
+	p,
+	label,
+	.sort-date {
+		color: $secondColor !important;
 	}
 	input,
 	textarea,
 	.react-select .react-select-pre__control {
 		background-color: #191b20;
-		// transition: all 0.3s ease-in-out;
 		color: #fff !important;
 		border: 1px solid #808191;
 	}
@@ -53,93 +27,43 @@
 	textarea:focus {
 		border: 1px solid rgb(243, 249, 253);
 	}
-}
-
-.dark-mode {
-	.wily {
+	input {
+		color: $whiteColor !important;
+	}
+	svg path {
+		fill: $secondColor !important;
+	}
+	hr,
+	.spot {
+		background-color: $secondColor !important;
+	}
+	.brdr-2-dark {
+		border: 2px solid $secondColor !important;
+	}
+	.wily-container {
 		background-color: rgba($color: $blackBg, $alpha: 0.95);
 		border: 1px solid $blackColor;
 		&:hover {
-			background-color: rgba($color: $blackColor, $alpha: 1);
+			background-color: $blackColor;
 			border: 1px solid $secondColor;
 		}
-		.header {
-			h4 {
-				color: $secondColor;
-			}
-			svg path {
-				fill: $secondColor;
-			}
-		}
-		p {
-			color: $secondColor;
-		}
-		.date-label {
-			color: $secondColor;
-		}
-		hr {
-			background-color: $secondColor;
-		}
-		.answer {
-			.date-and-btns {
-				.other-btns {
-					button {
-						border: 2px solid $secondColor;
-					}
-				}
-			}
+	}
+	.react-select {
+		.react-select-pre__control {
+			background-color: $blackBg !important;
+			border: 1px solid $secondColor !important;
 		}
 	}
-}
-
-.dark-mode {
 	.navbar-container {
 		background-color: rgba($color: $blackBg, $alpha: 0.95);
-		.nav-items {
-			svg path {
-				fill: $secondColor;
-			}
-			.right-items {
-				.params {
-					.light-mode,
-					.show-particuler {
-						border: 2px solid $secondColor;
-						.spot {
-							background-color: $secondColor;
-						}
-					}
-				}
-				a {
-					color: $secondColor;
-				}
-				button {
-					background-color: rgba($color: $blackBg, $alpha: 0.95);
-					border: 2px solid $secondColor;
-					color: $secondColor;
-				}
-				button:hover {
-					background-color: $blackColor;
-				}
-			}
-		}
+	}
+	button {
+		background-color: rgba($color: $blackBg, $alpha: 0.95);
+		border: 2px solid $secondColor;
+		color: $secondColor;
+	}
+	button:hover {
+		background-color: $blackColor;
 	}
 }
 
-.dark-mode {
-	.search-container {
-		.react-select {
-			.react-select-pre__control {
-				background-color: $blackBg;
-				border-color: $secondColor;
-				input {
-					color: $whiteColor !important;
-				}
-			}
-		}
-		.sort-date {
-			background-color: $blackBg;
-			border: 1px solid $secondColor;
-			color: $whiteColor;
-		}
-	}
-}

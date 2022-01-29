@@ -46,7 +46,7 @@ function SearchFilter() {
 				classNamePrefix="react-select-pre"
 				placeholder="Search by tags "
 			/>
-			<div className="sort-date" onClick={changeSortHandler}>
+			<div className="sort-date bg-dark-darkmode" onClick={changeSortHandler}>
 				{ sort === "" && <span>Sort by date</span> }
 				{ sort === "asc" && <span>Ascending</span> }
 				{ sort === "desc" && <span>Descending</span> }

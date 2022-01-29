@@ -1,9 +1,11 @@
 {
 	"data": [
 		{
-			"id": "1",
+			"_id": "0",
 			"qst": "what this statement \n```python\nprint(\"this is kirwa speaking\")\n```\n will print something \n\n ster akhor",
-			"answer": "what this statement    \n```python\nprint(\"this is kirwa speaking\")\n```\n will print"
+			"answer": "what this statement    \n```python\nprint(\"this is kirwa speaking\")\n```\n will print",
+			"date": "2022-01-29T14:00:52.973Z",
+			"tags": ["python", "coding"]
 		}
 	],
 	"tags": [

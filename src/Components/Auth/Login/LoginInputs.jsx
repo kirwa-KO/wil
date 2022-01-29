@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function LoginInputs() {
 	return (
 		<div className="inputs-container">
-			<form className="container inputs">
+			<form className="container inputs bg-dark-darkmode">
 				<h4>Login to your account</h4>
 				<label htmlFor="email">Email</label>
 				<input type="email" id="email" placeholder="email" />

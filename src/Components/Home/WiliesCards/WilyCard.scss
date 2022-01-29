@@ -1,23 +1,24 @@
 @import "../../../imports/colors";
 
-.wily {
+.wily-container {
 	background-color: rgba($color: $secondColor, $alpha: 0.8);
-	border-radius: 20px;
-	margin-bottom: 8px;
 	border: 1px solid $whiteColor;
-	// transition: all 0.3s ease-in-out;
-	padding-bottom: 2rem;
-	padding-top: 1rem;
+	border-radius: 20px;
 	&:hover {
 		background-color: $whiteColor;
 		border: 1px solid $mainColor;
 	}
+}
+
+.wily {
+	margin-bottom: 8px;
+	padding-bottom: 2rem;
+	padding-top: 1rem;
 	.header {
 		padding: 1rem 2rem 0rem 2rem;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		// transition: all 0.3s ease-in-out;
 		cursor: pointer;
 		h4 {
 			font-size: 20px;
@@ -25,17 +26,12 @@
 			font-weight: 500;
 			color: $mainColor;
 		}
-		.qst-container {
-		}
 		svg {
 			cursor: pointer;
-			// transition: all 0.3s ease-in-out;
 		}
 	}
 	.date-label {
 		padding-left: 2rem;
-		font-size: 13px;
-		color: #7a7a7a;
 	}
 	hr {
 		width: 94%;
@@ -47,30 +43,48 @@
 		overflow: hidden;
 		// transition: all 0.3s ease-in-out;
 		position: relative;
-		.date-and-btns {
-			margin-left: auto;
-			font-size: 0.6rem;
-			display: flex;
-			justify-content: flex-end;
-			.other-btns {
-				button {
-					background-color: $dangerColor;
-					color: $whiteColor;
-					font-weight: bold;
-					border-radius: 10px;
-					padding: 0.5rem 1rem;
-					border: none;
-				}
-				button:first-child {
-					background-color: $blackColor;
-				}
-				button:last-child {
-					margin-left: 8px;
-				}
-			}
-		}
 		.content {
 			display: flex;
 		}
+	}
+}
+
+.btns-container {
+	margin-left: auto;
+	font-size: 0.6rem;
+	display: flex;
+	justify-content: flex-end;
+	.control-btns {
+		button {
+			background-color: $mainColor;
+			color: $whiteColor;
+			font-weight: bold;
+			border-radius: 10px;
+			padding: 0.5rem 1rem;
+			border: none;
+		}
+		.edit-btn {
+			background-color: $blackColor;
+		}
+		.delete-btn {
+			background-color: $dangerColor;
+		}
+		a,
+		& > button {
+			margin-left: 8px;
+		}
+	}
+}
+
+.tags-container {
+	padding-left: 2rem;
+	.tag {
+		background-color: white;
+		border: 1px solid #b8c0cd;
+		border-radius: 5px;
+		color: hsl(0, 0%, 20%);
+		font-size: .8rem;
+		padding: 3px 6px;
+		margin-right: 8px;
 	}
 }

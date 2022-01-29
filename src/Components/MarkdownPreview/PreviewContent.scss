@@ -1,0 +1,28 @@
+@import "../../imports/colors";
+
+.markdown-content {
+	padding: 0;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	textarea,
+	.mardown-container {
+		border: 1px solid $mainColor;
+		border-radius: 10px;
+		// padding: 1rem;
+		width: 100%;
+	}
+	textarea {
+		height: calc(100vh - 140px);
+		margin-bottom: 0;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+	.mardown-container {
+		background-color: $whiteColor;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+		border-left: 0;
+		padding-top: 0.5rem;
+		padding-bottom: 0.5rem;
+	}
+}

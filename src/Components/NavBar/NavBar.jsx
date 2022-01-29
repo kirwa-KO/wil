@@ -29,7 +29,7 @@ function NavBar() {
 					<div className="right-items">
 						<div className="params">
 							<div
-								className="light-mode"
+								className="light-mode brdr-2-dark"
 								onClick={() => authCtx.toggleLightMode()}
 							>
 								<div
@@ -46,7 +46,7 @@ function NavBar() {
 								></div>
 							</div>
 							<div
-								className="show-particuler"
+								className="show-particuler brdr-2-dark"
 								onClick={() => authCtx.toggleShowParticules()}
 							>
 								<div
