@@ -2,6 +2,8 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Docs from "./pages/Docs";
+import "./styles/DarkMode.scss";
 
 function App() {
 	return (
@@ -15,6 +17,9 @@ function App() {
 				</Route>
 				<Route path="/signup">
 					<Signup />
+				</Route>
+				<Route path="/docs">
+					<Docs />
 				</Route>
 				<Route>
 					<Redirect to="/" />

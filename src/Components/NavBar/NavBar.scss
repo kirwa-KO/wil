@@ -44,36 +44,3 @@
 		}
 	}
 }
-
-.dark-mode {
-	.navbar-container {
-		background-color: rgba($color: $blackBg, $alpha: 0.95);
-		.nav-items {
-			svg path {
-				fill: $secondColor;
-			}
-			.right-items {
-				.params {
-					.light-mode,
-					.show-particuler {
-						border: 2px solid $secondColor;
-						.spot {
-							background-color: $secondColor;
-						}
-					}
-				}
-				a {
-					color: $secondColor;
-				}
-				button {
-					background-color: rgba($color: $blackBg, $alpha: 0.95);
-					border: 2px solid $secondColor;
-					color: $secondColor;
-				}
-				button:hover {
-					background-color: $blackColor;
-				}
-			}
-		}
-	}
-}
