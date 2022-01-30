@@ -1,5 +1,5 @@
 
-export function changeTagsShape(tagsArray) {
+export function convertTagsArrayShapetoObjects(tagsArray) {
 	var objectsArrayTags = [];
 
 	for (let tag of tagsArray) {
@@ -9,4 +9,14 @@ export function changeTagsShape(tagsArray) {
 		});
 	}
 	return (objectsArrayTags);
+}
+
+
+export function convertTagsObjectsShapetoArray(tagsObjects) {
+	var arrayTags = [];
+
+	for (let tag of tagsObjects) {
+		arrayTags.push(tag.value);
+	}
+	return (arrayTags);
 }

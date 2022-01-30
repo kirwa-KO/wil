@@ -53,6 +53,9 @@ textarea:focus {
 }
 
 .react-select {
+	.react-select-pre__value-container {
+		padding-left: 0;
+	}
 	.css-1rhbuit-multiValue {
 		background-color: hsl(0deg 0% 100%);
 		color: white;

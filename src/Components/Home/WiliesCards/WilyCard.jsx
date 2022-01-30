@@ -19,23 +19,11 @@ function WilyCard(props) {
 	return (
 		<div className="wily wily-container">
 			<span className="date-label">
-				twelve • {getFormatedDate(wily.date)}
+				{wily.creator.username} • {getFormatedDate(wily.updatedAt)}
 			</span>
-			<div
-				className="header"
-				// style={
-				// 	isOpen
-				// 		? {
-				// 				paddingBottom: "30px",
-				// 		  }
-				// 		: {
-				// 				// paddingBottom: "0px",
-				// 		  }
-				// }
-				onClick={toggleOpen}
-			>
+			<div className="header" onClick={toggleOpen}>
 				<div className="qst-container">
-					<Markdown value={wily.qst} />
+					<Markdown value={wily.question} />
 				</div>
 				<PlusIcon
 					width={26}
@@ -92,23 +80,28 @@ function WilyCard(props) {
 					</div>
 					<div></div>
 				</div>
-				<div className="btns-container">
-					<div className="control-btns">
-						<Link to={`/wil/${wily._id}`}>
-							<button className="brdr-2-dark">
-								open as page
-							</button>
-						</Link>
-						<Link to={`/edit/wil/${wily._id}`}>
-							<button className="brdr-2-dark edit-btn">
-								edit
-							</button>
-						</Link>
-						<button className="brdr-2-dark delete-btn">
-							delete
-						</button>
-					</div>
-				</div>
+				{
+					props.isLoggedIn &&
+					wily.creator.username === props.authenticatedUsername && (
+						<div className="btns-container">
+							<div className="control-btns">
+								<Link to={`/wil/${wily._id}`}>
+									<button className="brdr-2-dark">
+										open as page
+									</button>
+								</Link>
+								<Link to={`/edit/wil/${wily._id}`}>
+									<button className="brdr-2-dark edit-btn">
+										edit
+									</button>
+								</Link>
+								<button className="brdr-2-dark delete-btn">
+									delete
+								</button>
+							</div>
+						</div>
+					)
+				}
 			</div>
 		</div>
 	);

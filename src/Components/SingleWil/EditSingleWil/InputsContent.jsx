@@ -3,7 +3,7 @@ import getFormatedDate from "../../../utils/FormatDate";
 import CreatableSelect from "react-select/creatable";
 import Tags from "../../../data/qstsAnswers.json";
 import { useState } from "react";
-import { changeTagsShape } from "../../../utils/Heplers";
+import { convertTagsArrayShapetoObjects } from "../../../utils/Heplers";
 import Markdown from "../../UI/Markdown";
 import InputPreviewMarkdown from "../../UI/InputPreviewMarkdown";
 
@@ -23,7 +23,7 @@ const isValidNewOption = (inputValue, selectValue) =>
 
 function InputsContent(props) {
 	var { wily } = props;
-	var tagsArrays = changeTagsShape(wily.tags);
+	var tagsArrays = convertTagsArrayShapetoObjects(wily.tags);
 
 	const [qstInput, setQstInput] = useState(wily.qst);
 	const [answerInput, setAnswerInput] = useState(wily.answer);

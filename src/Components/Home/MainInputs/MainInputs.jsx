@@ -1,8 +1,9 @@
 import "./MainInputs.scss";
-import { useState, useRef } from "react";
+import { useState, useRef, forwardRef, useImperativeHandle } from "react";
 import CreatableSelect from "react-select/creatable";
 import Tags from "../../../data/qstsAnswers.json";
 import InputPreviewMarkdown from "../../UI/InputPreviewMarkdown";
+import { convertTagsObjectsShapetoArray } from "../../../utils/Heplers";
 
 let answerSectionHeight = null;
 
@@ -21,15 +22,26 @@ const style = {
 const isValidNewOption = (inputValue, selectValue) =>
 	inputValue.length > 0 && selectValue.length < maxOptions;
 
-function MainInput() {
+const MainInput = forwardRef((props, ref) => {
 	const [qstInput, setQstInput] = useState();
 	const [answerInput, setAnswerInput] = useState();
-	const [showAnswerInput, setShowAnswerInput] = useState(false);
 	const [selectedOption, setSelectedOption] = useState([]);
+	const [showAnswerInput, setShowAnswerInput] = useState(false);
 
 	const onSubmitForm = (event) => {
 		event.preventDefault();
+		var tags = convertTagsObjectsShapetoArray(selectedOption);
+		props.addWilyHandler(qstInput, answerInput, true, tags);
 	};
+
+	useImperativeHandle(ref, () => ({
+		resetInputs() {
+			setQstInput("");
+			setAnswerInput("");
+			setSelectedOption([]);
+			setShowAnswerInput(false);
+		},
+	}));
 
 	const onChangeQstInput = (event) => {
 		setShowAnswerInput(true);
@@ -50,6 +62,7 @@ function MainInput() {
 	) {
 		answerSectionHeight = itemsLinkinMobileRef.current.scrollHeight;
 	}
+
 	return (
 		<form
 			className="main-inputs container bg-dark-darkmode"
@@ -62,7 +75,7 @@ function MainInput() {
 				placeholder="Question..."
 				maxChars={maxQstChars}
 				value={qstInput}
-				/>
+			/>
 			<div
 				className="answer"
 				style={
@@ -112,6 +125,6 @@ function MainInput() {
 			</div>
 		</form>
 	);
-}
+});
 
 export default MainInput;
