@@ -5,6 +5,10 @@
 	width: 80px;
 	height: 80px;
 	margin-top: 2rem;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 3rem;
 }
 .spinner:after {
 	content: " ";

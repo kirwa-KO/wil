@@ -1,4 +1,4 @@
-@import "../../../imports/colors";
+@import "../../imports/colors";
 
 .inputs-container {
 	padding-top: 5rem;
@@ -21,7 +21,7 @@
 		}
 		a {
 			font-size: 0.8rem;
-			padding: 1rem 5px;
+			padding: .5rem 5px;
 			padding-top: 5px;
 		}
 		a:last-child {

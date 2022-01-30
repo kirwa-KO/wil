@@ -14,13 +14,7 @@ const MarkdownPreview = lazy(() => import("./pages/MarkdownPreview"));
 
 function App() {
 	return (
-		<Suspense
-			fallback={
-				<div className="text-center">
-					<LoadingSpinner />
-				</div>
-			}
-		>
+		<Suspense fallback={<LoadingSpinner />}>
 			<Switch>
 				<Route exact path="/">
 					<Home />

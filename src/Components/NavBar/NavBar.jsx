@@ -63,7 +63,10 @@ function NavBar() {
 								></div>
 							</div>
 						</div>
-						<button className="main-btn-outline ml-2rem">Logout</button>
+						<button
+							className="main-btn-outline ml-2rem"
+							onClick={() => authCtx.logout()}
+						>Logout</button>
 					</div>
 				)}
 			</nav>

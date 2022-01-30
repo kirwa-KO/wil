@@ -6,6 +6,8 @@ const AuthContext = React.createContext({
 	showParticuler: false,
 	lightMode: false,
 	token: "",
+	userId: "",
+	username: "",
 	isLoggedIn: false,
 	login: (token) => {},
 	logout: () => {},
@@ -13,31 +15,15 @@ const AuthContext = React.createContext({
 	toggleLightMode: () => {},
 });
 
-const calculateRemainingTime = (expirationTime) => {
-	const currentTime = new Date().getTime();
-	const adjExpirationTime = new Date(expirationTime).getTime();
-
-	const remainingDuration = adjExpirationTime - currentTime;
-
-	return remainingDuration;
-};
-
-const retrieveStoredToken = () => {
+const retrieveStoredUserData = () => {
 	const storedToken = localStorage.getItem("token");
-	const storedExpirationDate = localStorage.getItem("expirationTime");
-	const remainingTime = calculateRemainingTime(storedExpirationDate);
-
-	// if (remainingTime <= 3600) {
-	// 	localStorage.removeItem("token");
-	// 	localStorage.removeItem("expirationTime");
-	// 	return null;
-	// }
+	const storedUserId = localStorage.getItem("userId");
+	const storedUsername = localStorage.getItem("username");
 
 	return {
 		token: storedToken,
-		// duration: remainingTime,
-		// you need to change this to the remaining time
-		duration: storedExpirationDate,
+		userId: storedUserId,
+		username: storedUsername
 	};
 };
 
@@ -51,15 +37,21 @@ const retrieveStoredParams = () => {
 };
 
 export const AuthContextProvider = (props) => {
-	const tokenData = retrieveStoredToken();
+	const storedData = retrieveStoredUserData();
 	const paramsData = retrieveStoredParams();
 
 	let initialToken;
-	if (tokenData) {
-		initialToken = tokenData.token;
+	let initialUserId;
+	let initialUsername;
+	if (storedData) {
+		initialToken = storedData.token;
+		initialUserId = storedData.userId;
+		initialUsername = storedData.username;
 	}
 
 	const [token, setToken] = useState(initialToken);
+	const [userId, setUserId] = useState(initialUserId);
+	const [username, setUsername] = useState(initialUsername);
 	const [showParticuler, setShowParticuler] = useState(
 		paramsData.showParticules
 	);
@@ -70,26 +62,21 @@ export const AuthContextProvider = (props) => {
 
 	const logoutHandler = useCallback(() => {
 		setToken(null);
+		setUserId(null);
+		setUsername(null);
 		localStorage.removeItem("token");
-		localStorage.removeItem("expirationTime");
-		if (logoutTimer) {
-			clearTimeout(logoutTimer);
-		}
+		localStorage.removeItem("userId");
+		localStorage.removeItem("username");
 	}, []);
 
-	const loginHandler = (token, expirationTime) => {
+	const loginHandler = (token, userId, username) => {
 		setToken(token);
+		setUserId(userId);
+		setUsername(username);
 		localStorage.setItem("token", token);
-		localStorage.setItem("expirationTime", expirationTime);
-		const remainingTime = calculateRemainingTime(expirationTime);
-		logoutTimer = setTimeout(logoutHandler, remainingTime);
+		localStorage.setItem("userId", userId);
+		localStorage.setItem("username", username);
 	};
-
-	// useEffect(() => {
-	// 	if (tokenData) {
-	// 		logoutTimer = setTimeout(logoutHandler, tokenData.duration);
-	// 	}
-	// }, [tokenData, logoutHandler]);
 
 	const toggleShowParticulesHandler = () => {
 		setShowParticuler((prevState) => {
@@ -107,6 +94,8 @@ export const AuthContextProvider = (props) => {
 
 	const contextValue = {
 		token: token,
+		userId: userId,
+		username: username,
 		showParticuler: showParticuler,
 		lightMode: lightMode,
 		isLoggedIn: userIsLoggedIn,
