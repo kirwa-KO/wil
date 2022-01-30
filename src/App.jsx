@@ -11,6 +11,7 @@ const Docs = lazy(() => import("./pages/Docs"));
 const ShowSingleWil = lazy(() => import("./pages/ShowSingleWil"));
 const EditSingleWil = lazy(() => import("./pages/EditSingleWil"));
 const MarkdownPreview = lazy(() => import("./pages/MarkdownPreview"));
+const OtherUserWilies = lazy(() => import("./pages/OtherUserWilies"));
 
 function App() {
 	return (
@@ -36,6 +37,9 @@ function App() {
 				</Route>
 				<Route path="/preview">
 					<MarkdownPreview />
+				</Route>
+				<Route path="/user/:username/wilies">
+					<OtherUserWilies />
 				</Route>
 				<Route>
 					<Redirect to="/" />

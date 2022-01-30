@@ -3,7 +3,9 @@ function ErrorContainer(props) {
 	return (
 		<div className="wil-content-container">
 			<div className="container wil-content wily-container text-center">
-				{props.errorMessage}
+				<p className="p-4 m-0">
+					{props.errorMessage}
+				</p>
 			</div>
 		</div>
 	);

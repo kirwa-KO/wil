@@ -117,7 +117,7 @@ textarea:focus {
 	}
 	span {
 		color: $placeHolderColor;
-		font-size: .8rem;
+		font-size: 0.8rem;
 	}
 }
 
@@ -183,8 +183,28 @@ textarea:focus {
 		border: 1px solid #b8c0cd;
 		border-radius: 5px;
 		color: hsl(0, 0%, 20%);
-		font-size: .8rem;
+		font-size: 0.8rem;
 		padding: 3px 6px;
 		margin-right: 8px;
+	}
+}
+
+.content-container {
+	.content {
+		background-color: $whiteColor;
+		margin-top: 5rem;
+		padding: 2rem;
+		border-radius: 10px;
+		border: 1px solid $mainColor;
+		box-shadow: 0 15px 35px 0 rgba(64, 68, 82, 0.08);
+		h4,
+		h5 {
+			margin-bottom: 1rem;
+			color: $mainColor;
+			font-weight: 600;
+		}
+		p {
+			margin-bottom: 1rem;
+		}
 	}
 }
