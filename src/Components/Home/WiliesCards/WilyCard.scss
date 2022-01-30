@@ -1,14 +1,5 @@
 @import "../../../imports/colors";
 
-.wily-container {
-	background-color: rgba($color: $secondColor, $alpha: 0.8);
-	border: 1px solid $whiteColor;
-	border-radius: 20px;
-	&:hover {
-		background-color: $whiteColor;
-		border: 1px solid $mainColor;
-	}
-}
 
 .wily {
 	margin-bottom: 8px;
@@ -46,45 +37,5 @@
 		.content {
 			display: flex;
 		}
-	}
-}
-
-.btns-container {
-	margin-left: auto;
-	font-size: 0.6rem;
-	display: flex;
-	justify-content: flex-end;
-	.control-btns {
-		button {
-			background-color: $mainColor;
-			color: $whiteColor;
-			font-weight: bold;
-			border-radius: 10px;
-			padding: 0.5rem 1rem;
-			border: none;
-		}
-		.edit-btn {
-			background-color: $blackColor;
-		}
-		.delete-btn {
-			background-color: $dangerColor;
-		}
-		a,
-		& > button {
-			margin-left: 8px;
-		}
-	}
-}
-
-.tags-container {
-	padding-left: 2rem;
-	.tag {
-		background-color: white;
-		border: 1px solid #b8c0cd;
-		border-radius: 5px;
-		color: hsl(0, 0%, 20%);
-		font-size: .8rem;
-		padding: 3px 6px;
-		margin-right: 8px;
 	}
 }

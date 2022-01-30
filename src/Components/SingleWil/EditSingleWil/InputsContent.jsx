@@ -3,9 +3,9 @@ import getFormatedDate from "../../../utils/FormatDate";
 import CreatableSelect from "react-select/creatable";
 import Tags from "../../../data/qstsAnswers.json";
 import { useState } from "react";
-import { convertTagsArrayShapetoObjects } from "../../../utils/Heplers";
-import Markdown from "../../UI/Markdown";
+import { convertTagsAraayObjsShapetoObjects } from "../../../utils/Heplers";
 import InputPreviewMarkdown from "../../UI/InputPreviewMarkdown";
+import { convertTagsObjectsShapetoArray } from "../../../utils/Heplers";
 
 const maxOptions = Number(import.meta.env.VITE_MAX_TAGS);
 const maxQstChars = Number(import.meta.env.VITE_MAX_QST_CHARS);
@@ -23,9 +23,9 @@ const isValidNewOption = (inputValue, selectValue) =>
 
 function InputsContent(props) {
 	var { wily } = props;
-	var tagsArrays = convertTagsArrayShapetoObjects(wily.tags);
+	var tagsArrays = wily.tags ? convertTagsAraayObjsShapetoObjects(wily.tags) : null;
 
-	const [qstInput, setQstInput] = useState(wily.qst);
+	const [qstInput, setQstInput] = useState(wily.question);
 	const [answerInput, setAnswerInput] = useState(wily.answer);
 	const [selectedOption, setSelectedOption] = useState(tagsArrays);
 
@@ -37,12 +37,18 @@ function InputsContent(props) {
 		setAnswerInput(event.target.value);
 	};
 
+	const onSubmitHandler = event => {
+		event.preventDefault();
+		var tags = convertTagsObjectsShapetoArray(selectedOption);
+		props.onEditWily(qstInput, answerInput, true, tags)
+	}
+
 	return (
 		<div className="edit-container">
 			<div className="container">
-				<form className="main-inputs bg-dark-darkmode">
+				<form className="main-inputs bg-dark-darkmode" onSubmit={onSubmitHandler}>
 					<div className="date-label">
-						twelve • {getFormatedDate(wily.date)}
+						{ wily.creator && wily.creator.username } • {getFormatedDate(wily.updatedAt)}
 					</div>
 					<label htmlFor="">Question</label>
 					<InputPreviewMarkdown
@@ -66,7 +72,7 @@ function InputsContent(props) {
 							onChange={setSelectedOption}
 							value={selectedOption}
 							options={
-								selectedOption.length >= maxOptions
+								tagsArrays &&selectedOption.length >= maxOptions
 									? selectedOption
 									: Tags.tags
 							}

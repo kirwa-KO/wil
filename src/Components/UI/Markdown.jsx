@@ -1,6 +1,10 @@
 import ReactMarkdown from 'react-markdown'
 import SyntaxHighlighter from 'react-syntax-highlighter'
+// import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+// import js from 'react-syntax-highlighter/dist/cjs/languages/prism/javascript';
+
+// SyntaxHighlighter.registerLanguage('js', js);
 
 function Markdown({ value }) {
 	return (

@@ -1,6 +1,5 @@
 import Tags from "../../data/qstsAnswers.json";
 import Select from "react-select";
-import { useState } from "react";
 import "./SearchFilter.scss";
 
 const style = {
@@ -17,39 +16,25 @@ const style = {
 	},
 };
 
-function SearchFilter() {
-	const [selectedOption, setSelectedOption] = useState(null);
-	const tags = Tags.tags;
-	const [sort, setSort] = useState("");
-
-	const changeSortHandler = () => {
-		setSort(prevSort => {
-			if (prevSort === "")
-				return "asc";
-			else if (prevSort === "asc")
-				return "desc";
-			else
-				return "";
-		});
-	}
-
-
+function SearchFilter(props) {
 	return (
 		<div className="search-container container">
 			<Select
-				defaultValue={selectedOption}
-				onChange={setSelectedOption}
-				options={tags}
+				defaultValue={props.searchTags}
+				onChange={props.changeFilteredTags}
+				options={props.suggestedTags}
 				isMulti
 				styles={style}
 				className="react-select"
 				classNamePrefix="react-select-pre"
 				placeholder="Search by tags "
 			/>
-			<div className="sort-date bg-dark-darkmode" onClick={changeSortHandler}>
-				{ sort === "" && <span>Sort by date</span> }
-				{ sort === "asc" && <span>Ascending</span> }
-				{ sort === "desc" && <span>Descending</span> }
+			<div
+				className="sort-date bg-dark-darkmode"
+				onClick={props.changeSortHandler}
+			>
+				{props.sort === "asc" && <span>Ascending</span>}
+				{props.sort === "desc" && <span>Descending</span>}
 			</div>
 		</div>
 	);

@@ -16,6 +16,11 @@ function WilyCard(props) {
 
 	const itemsLinkinMobileRef = useRef();
 
+	const deleteWily = wilyId => {
+		if (confirm("Are you sure to delete the wily ??"))
+			props.deleteWilyHandler(wilyId);
+	}
+
 	return (
 		<div className="wily wily-container">
 			<span className="date-label">
@@ -54,7 +59,7 @@ function WilyCard(props) {
 			>
 				{wily.tags.map((tag, index) => (
 					<span key={index} className="tag">
-						{tag}
+						{ tag.name }
 					</span>
 				))}
 			</div>
@@ -95,7 +100,7 @@ function WilyCard(props) {
 										edit
 									</button>
 								</Link>
-								<button className="brdr-2-dark delete-btn">
+								<button className="brdr-2-dark delete-btn" onClick={deleteWily.bind(null, wily._id)}>
 									delete
 								</button>
 							</div>
