@@ -5,7 +5,6 @@ import { useContext } from "react";
 import AuthContext from "../../store/auth-context";
 
 function NavBar() {
-	
 	const authCtx = useContext(AuthContext);
 	const isloggedIn = authCtx.isLoggedIn;
 
@@ -63,10 +62,15 @@ function NavBar() {
 								></div>
 							</div>
 						</div>
+						<Link to="/docs">
+							<button className="main-btn-outline">Docs</button>
+							</Link>
 						<button
-							className="main-btn-outline ml-2rem"
+							className="main-btn-outline ml-3"
 							onClick={() => authCtx.logout()}
-						>Logout</button>
+						>
+							Logout
+						</button>
 					</div>
 				)}
 			</nav>
