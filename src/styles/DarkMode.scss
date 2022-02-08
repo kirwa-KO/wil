@@ -68,5 +68,9 @@
 	button:hover {
 		background-color: $blackColor;
 	}
+	.spinner:after {
+		border: 6px solid $secondColor;
+		border-color: $secondColor transparent $secondColor transparent;
+	}
 }
 
