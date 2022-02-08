@@ -1,5 +1,5 @@
 import "./MainInputs.scss";
-import { useState, useRef, forwardRef, useImperativeHandle } from "react";
+import React, { useState, useRef, forwardRef, useImperativeHandle } from "react";
 import CreatableSelect from "react-select/creatable";
 import Tags from "../../../data/qstsAnswers.json";
 import InputPreviewMarkdown from "../../UI/InputPreviewMarkdown";
@@ -27,6 +27,8 @@ const MainInput = forwardRef((props, ref) => {
 	const [answerInput, setAnswerInput] = useState();
 	const [selectedOption, setSelectedOption] = useState([]);
 	const [showAnswerInput, setShowAnswerInput] = useState(false);
+
+	console.log("main Inputs")
 
 	const onSubmitForm = (event) => {
 		event.preventDefault();
@@ -127,4 +129,4 @@ const MainInput = forwardRef((props, ref) => {
 	);
 });
 
-export default MainInput;
+export default React.memo(MainInput);

@@ -1,6 +1,4 @@
 import Layout from "../Components/Layouts/Layout";
-import ParticlesComponent from "../Components/UI/Particles";
-import NavBar from "../Components/NavBar/NavBar";
 import { useContext, useState, useEffect } from "react";
 import AuthContext from "../store/auth-context";
 import { useParams } from "react-router-dom";
@@ -70,15 +68,7 @@ function EditSingleWil() {
 
 
 	return (
-		<Layout
-			lightMode={authCtx.lightMode}
-			showParticuler={authCtx.showParticuler}
-		>
-			<NavBar />
-			<ParticlesComponent
-				showParticuler={authCtx.showParticuler}
-				lightMode={authCtx.lightMode}
-			/>
+		<Layout>
 			{ error && <ErrorContainer errorMessage={error} /> }
 			{ !error && isLoading && <LoadingSpinner /> }
 			{ !error && !isLoading && <InputsContent wily={wily} onEditWily={editWilyHandler} /> }

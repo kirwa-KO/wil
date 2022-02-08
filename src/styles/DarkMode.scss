@@ -42,7 +42,8 @@
 	.brdr-2-dark {
 		border: 2px solid $secondColor !important;
 	}
-	.wily-container {
+	.wily-container
+	{
 		background-color: rgba($color: $blackBg, $alpha: 0.95);
 		border: 1px solid $blackColor;
 		&:hover {

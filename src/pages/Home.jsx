@@ -1,9 +1,7 @@
 import Layout from "../Components/Layouts/Layout";
-import ParticlesComponent from "../Components/UI/Particles";
-import NavBar from "../Components/NavBar/NavBar";
 import MainInputs from "../Components/Home/MainInputs/MainInputs";
 import WiliesCards from "../Components/Home/WiliesCards/WiliesCards";
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import AuthContext from "../store/auth-context";
 import useHttp from "../hooks/useHttp";
 import { useState, useEffect, useRef } from "react";
@@ -28,7 +26,7 @@ function Home() {
 		setSuggestedTags(convertTagsAraayObjsShapetoObjects(data.tags));
 	};
 
-	const mainInputsRef = useRef();
+	const mainInputsRef = useMemo(() => useRef());
 
 	useEffect(() => {
 		if (authCtx.isLoggedIn === false) {
@@ -111,16 +109,9 @@ function Home() {
 		alert.show(error, { type: "error", timeout: 5000 });
 	}
 
+
 	return (
-		<Layout
-			lightMode={authCtx.lightMode}
-			showParticuler={authCtx.showParticuler}
-		>
-			<NavBar />
-			<ParticlesComponent
-				showParticuler={authCtx.showParticuler}
-				lightMode={authCtx.lightMode}
-			/>
+		<Layout>
 			{isLoading && <LoadingSpinner />}
 			{!authCtx.isLoggedIn && <div className="content-container">
 				<div className="container content bg-dark-darkmode">

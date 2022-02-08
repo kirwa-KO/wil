@@ -61,15 +61,7 @@ function ShowSingleWil() {
 	}
 
 	return (
-		<Layout
-			lightMode={authCtx.lightMode}
-			showParticuler={authCtx.showParticuler}
-		>
-			<NavBar />
-			<ParticlesComponent
-				showParticuler={authCtx.showParticuler}
-				lightMode={authCtx.lightMode}
-			/>
+		<Layout>
 			{error && <ErrorContainer errorMessage={error} />}
 			{!error && isLoading && <LoadingSpinner />}
 			{!error && !isLoading && (

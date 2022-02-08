@@ -16,6 +16,9 @@ function NavBar() {
 				</Link>
 				{!isloggedIn && (
 					<div className="right-items">
+						<Link to="/community">
+							<button className="main-btn-outline">Community</button>
+						</Link>
 						<Link to="/login">
 							<button className="main-btn-outline">Login</button>
 						</Link>
@@ -36,11 +39,11 @@ function NavBar() {
 									style={
 										authCtx.lightMode
 											? {
-													marginLeft: "auto",
-											  }
+												marginLeft: "auto",
+											}
 											: {
-													marginLeft: "2px",
-											  }
+												marginLeft: "2px",
+											}
 									}
 								></div>
 							</div>
@@ -53,18 +56,21 @@ function NavBar() {
 									style={
 										authCtx.showParticuler
 											? {
-													marginLeft: "auto",
-											  }
+												marginLeft: "auto",
+											}
 											: {
-													marginLeft: "2px",
-											  }
+												marginLeft: "2px",
+											}
 									}
 								></div>
 							</div>
 						</div>
+						<Link to="/community">
+							<button className="main-btn-outline">Community</button>
+						</Link>
 						<Link to="/docs">
 							<button className="main-btn-outline">Docs</button>
-							</Link>
+						</Link>
 						<button
 							className="main-btn-outline ml-3"
 							onClick={() => authCtx.logout()}

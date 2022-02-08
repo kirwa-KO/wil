@@ -10,9 +10,7 @@ function MarkdownPreview() {
 	const authCtx = useContext(AuthContext);
 
 	return (
-		<Layout lightMode={authCtx.lightMode} showParticuler={authCtx.showParticuler}>
-			<NavBar />
-			<ParticlesComponent showParticuler={authCtx.showParticuler} lightMode={authCtx.lightMode} />
+		<Layout>
 			<PreviewContent />
 		</Layout>
 	);
