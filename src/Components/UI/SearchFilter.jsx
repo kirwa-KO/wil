@@ -1,6 +1,6 @@
-import Tags from "../../data/qstsAnswers.json";
 import Select from "react-select";
 import "./SearchFilter.scss";
+import React from "react";
 
 const style = {
 	control: (base) => ({
@@ -40,4 +40,4 @@ function SearchFilter(props) {
 	);
 }
 
-export default SearchFilter;
+export default React.memo(SearchFilter);

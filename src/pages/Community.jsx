@@ -20,7 +20,7 @@ function Community() {
 	return (
 		<Layout>
 			{isLoading && <LoadingSpinner />}
-			<CommunityContent usersWilies={usersWilies} />
+			{ usersWilies.length > 0 && <CommunityContent usersWilies={usersWilies} /> }
 		</Layout>
 	);
 }

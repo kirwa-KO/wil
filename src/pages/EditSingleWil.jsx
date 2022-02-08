@@ -38,7 +38,7 @@ function EditSingleWil() {
 	}, []);
 
 	const wilyEditedSuccessed = (wilyData) => {
-		alert.show(wilyData.message, { type: "sucess", timeout: 3000  });
+		alert.show(wilyData.message, { type: "sucess", timeout: 3000 });
 		history.push(`/wil/${wilId}`);
 	}
 
@@ -69,10 +69,13 @@ function EditSingleWil() {
 
 	return (
 		<Layout>
-			{ error && <ErrorContainer errorMessage={error} /> }
-			{ !error && isLoading && <LoadingSpinner /> }
-			{ !error && !isLoading && <InputsContent wily={wily} onEditWily={editWilyHandler} /> }
-			
+			{error && <ErrorContainer errorMessage={error} />}
+			{!error && isLoading && <LoadingSpinner />}
+			{!error && !isLoading && <InputsContent
+										wily={wily}
+										onEditWily={editWilyHandler}
+										/>}
+
 		</Layout>
 	);
 }

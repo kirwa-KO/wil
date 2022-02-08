@@ -28,8 +28,6 @@ const MainInput = forwardRef((props, ref) => {
 	const [selectedOption, setSelectedOption] = useState([]);
 	const [showAnswerInput, setShowAnswerInput] = useState(false);
 
-	console.log("main Inputs")
-
 	const onSubmitForm = (event) => {
 		event.preventDefault();
 		var tags = convertTagsObjectsShapetoArray(selectedOption);

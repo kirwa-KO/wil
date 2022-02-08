@@ -3,7 +3,7 @@ import WilyCard from "./WilyCard";
 import { useContext } from "react";
 import AuthContext from "../../../store/auth-context";
 import SearchFilter from "../../../Components/UI/SearchFilter";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import {
 	convertTagsObjectsShapetoArray,
 	convertTagsObjectsNameShapetoArrayTags
@@ -21,7 +21,7 @@ function WiliesCards(props) {
 		setFilteredWilies(wilies);
 	}, [wilies]);
 
-	const changeSortHandler = () => {
+	const changeSortHandler = useMemo(() => () => {
 		setSort((prevSort) => {
 			if (prevSort === "asc") {
 				setFilteredWilies((prevWilies) => {
@@ -46,9 +46,9 @@ function WiliesCards(props) {
 				return "asc";
 			}
 		});
-	};
+	}, []);
 
-	const changeFilteredTags = (tags) => {
+	const changeFilteredTags = useMemo(() => (tags) => {
 		var filterTags = convertTagsObjectsShapetoArray(tags);
 		if (filterTags.length <= 0) setFilteredWilies(wilies);
 		else {
@@ -64,7 +64,7 @@ function WiliesCards(props) {
 			});
 		}
 		setSearchTags(tags);
-	};
+	}, []);
 
 	return (
 		<>
@@ -94,4 +94,4 @@ function WiliesCards(props) {
 	);
 }
 
-export default WiliesCards;
+export default React.memo(WiliesCards);

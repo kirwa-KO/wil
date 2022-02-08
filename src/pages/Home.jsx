@@ -26,7 +26,7 @@ function Home() {
 		setSuggestedTags(convertTagsAraayObjsShapetoObjects(data.tags));
 	};
 
-	const mainInputsRef = useMemo(() => useRef());
+	const mainInputsRef = useRef();
 
 	useEffect(() => {
 		if (authCtx.isLoggedIn === false) {
@@ -59,7 +59,7 @@ function Home() {
 		});
 	};
 
-	const deleteWilyHandler = (wilyId) => {
+	const deleteWilyHandler = useMemo(() => (wilyId) => {
 		sendGetWiliesRequest(
 			{
 				url: `${import.meta.env.VITE_API_LINK}/feed/wily/${wilyId}`,
@@ -71,7 +71,7 @@ function Home() {
 			},
 			deleteWilySuccessed
 		);
-	};
+	}, []);
 
 	const addWilySuccessed = (wilyData) => {
 		mainInputsRef.current.resetInputs();
@@ -83,7 +83,7 @@ function Home() {
 		});
 	};
 
-	const addWilyHandler = (question, answer, isPublic, tags) => {
+	const addWilyHandler = useMemo(() => (question, answer, isPublic, tags) => {
 		sendGetWiliesRequest(
 			{
 				url: `${import.meta.env.VITE_API_LINK}/feed/wily`,
@@ -101,7 +101,7 @@ function Home() {
 			},
 			addWilySuccessed
 		);
-	};
+	}, []);
 
 	const alert = useAlert();
 
@@ -134,11 +134,11 @@ function Home() {
 					addWilyHandler={addWilyHandler}
 				/>
 			)}
-			<WiliesCards
+			{wilies.length > 0 && <WiliesCards
 				deleteWilyHandler={deleteWilyHandler}
 				wilies={wilies}
 				suggestedTags={suggestedTags}
-			/>
+			/>}
 		</Layout>
 	);
 }
