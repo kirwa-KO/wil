@@ -18,6 +18,10 @@
 	background-color: $whiteColor;
 }
 
+.main-btn-outline:hover {
+	background-color: $mainColor;
+	color: white;
+}
 .ml-2rem {
 	margin-left: 2rem;
 }
@@ -70,6 +74,9 @@ textarea:focus {
 				color: white;
 			}
 		}
+	}
+	.react-select-pre__placeholder {
+		color: $placeHolderColor !important;
 	}
 }
 
@@ -207,4 +214,41 @@ textarea:focus {
 			margin-bottom: 1rem;
 		}
 	}
+}
+
+.wil-status {
+	border: 1px solid $mainColor;
+	padding: 0.5rem 1rem;
+	cursor: pointer;
+	border-radius: 10px;
+	text-align: center;
+	span {
+		margin-right: 0.5rem;
+		font-weight: 600;
+	}
+	svg path {
+		fill: #000;
+	}
+}
+.wil-status:first-child {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+.wil-status:nth-child(2) {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	border-left: 0;
+}
+.selected {
+	svg path {
+		fill: #fff;
+	}
+}
+.selected.wil-status:first-child {
+	background-color: $successColor;
+	color: white;
+}
+.selected.wil-status:nth-child(2) {
+	background-color: $dangerColor;
+	color: white;
 }

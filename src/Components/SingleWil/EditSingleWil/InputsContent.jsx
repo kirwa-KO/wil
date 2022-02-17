@@ -6,6 +6,8 @@ import { useState } from "react";
 import { convertTagsAraayObjsShapetoObjects } from "../../../utils/Heplers";
 import InputPreviewMarkdown from "../../UI/InputPreviewMarkdown";
 import { convertTagsObjectsShapetoArray } from "../../../utils/Heplers";
+import { ReactComponent as PrivateIcon } from "../../../assets/privateIcon.svg";
+import { ReactComponent as PublicIcon } from "../../../assets/publicIcon.svg";
 
 const maxOptions = Number(import.meta.env.VITE_MAX_TAGS);
 const maxQstChars = Number(import.meta.env.VITE_MAX_QST_CHARS);
@@ -23,11 +25,14 @@ const isValidNewOption = (inputValue, selectValue) =>
 
 function InputsContent(props) {
 	var { wily } = props;
-	var tagsArrays = wily.tags ? convertTagsAraayObjsShapetoObjects(wily.tags) : null;
+	var tagsArrays = wily.tags
+		? convertTagsAraayObjsShapetoObjects(wily.tags)
+		: null;
 
 	const [qstInput, setQstInput] = useState(wily.question);
 	const [answerInput, setAnswerInput] = useState(wily.answer);
 	const [selectedOption, setSelectedOption] = useState(tagsArrays);
+	const [isPublicWily, setIsPublicWily] = useState(wily.isPublic);
 
 	const onChangeQstInput = (event) => {
 		setQstInput(event.target.value);
@@ -37,18 +42,22 @@ function InputsContent(props) {
 		setAnswerInput(event.target.value);
 	};
 
-	const onSubmitHandler = event => {
+	const onSubmitHandler = (event) => {
 		event.preventDefault();
 		var tags = convertTagsObjectsShapetoArray(selectedOption);
-		props.onEditWily(qstInput, answerInput, true, tags)
-	}
+		props.onEditWily(qstInput, answerInput, isPublicWily, tags);
+	};
 
 	return (
 		<div className="edit-container">
 			<div className="container">
-				<form className="main-inputs bg-dark-darkmode" onSubmit={onSubmitHandler}>
+				<form
+					className="main-inputs bg-dark-darkmode mb-4"
+					onSubmit={onSubmitHandler}
+				>
 					<div className="date-label">
-						{ wily.creator && wily.creator.username } • {getFormatedDate(wily.updatedAt)}
+						{wily.creator && wily.creator.username} •{" "}
+						{getFormatedDate(wily.updatedAt)}
 					</div>
 					<label htmlFor="">Question</label>
 					<InputPreviewMarkdown
@@ -72,7 +81,8 @@ function InputsContent(props) {
 							onChange={setSelectedOption}
 							value={selectedOption}
 							options={
-								tagsArrays &&selectedOption.length >= maxOptions
+								tagsArrays &&
+								selectedOption.length >= maxOptions
 									? selectedOption
 									: Tags.tags
 							}
@@ -87,8 +97,31 @@ function InputsContent(props) {
 							}}
 							isValidNewOption={isValidNewOption}
 						/>
+						<div className="row mx-0 mb-3">
+							<div
+								className={`wil-status col-2 ${
+									isPublicWily ? "selected" : ""
+								}`}
+								onClick={(_) => setIsPublicWily(true)}
+							>
+								<span>public</span>
+								<PublicIcon />
+							</div>
+							<div
+								className={`wil-status col-2 ${
+									!isPublicWily ? "selected" : ""
+								}`}
+								onClick={(_) => setIsPublicWily(false)}
+							>
+								<span>private</span>
+								<PrivateIcon />
+							</div>
+							<div className="col-8 d-flex justify-content-end px-0">
+								<button className="main-btn">Add a wily</button>
+							</div>
+						</div>
 					</div>
-					<button className="main-btn mr-auto">Edit wily</button>
+					{/* <button className="main-btn mr-auto">Edit wily</button> */}
 				</form>
 			</div>
 		</div>

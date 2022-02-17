@@ -132,6 +132,7 @@ function Home() {
 				<MainInputs
 					ref={mainInputsRef}
 					addWilyHandler={addWilyHandler}
+					suggestedTags={suggestedTags}
 				/>
 			)}
 			{wilies.length > 0 && <WiliesCards

@@ -1,8 +1,15 @@
 import { useState, useCallback } from "react";
+import { useContext } from "react";
+import AuthContext from "../store/auth-context";
+import { useHistory } from "react-router-dom";
 
 const useHttp = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState(null);
+
+	const history = useHistory();
+
+	const authCtx = useContext(AuthContext);
 
 	const sendRequest = useCallback(async (requestConfig, applyData) => {
 		setIsLoading(true);
@@ -24,7 +31,13 @@ const useHttp = () => {
 			}
 			applyData(data);
 		} catch (err) {
-			setError(err.message || "Something went wrong!");
+			if (err.message == "jwt expired") {
+				authCtx.logout();
+				history.push("/login");
+			}
+			else {
+				setError(err.message || "Something went wrong!");
+			}
 		}
 		setIsLoading(false);
 	}, []);

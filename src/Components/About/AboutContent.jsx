@@ -1,6 +1,6 @@
-import "./DocsContent.scss";
+import "./AboutContent.scss";
 
-function DocsContent() {
+function AboutContent() {
 	return (
 		<div className="content-container">
 			<div className="container content bg-dark-darkmode">
@@ -56,4 +56,4 @@ function DocsContent() {
 	);
 }
 
-export default DocsContent;
+export default AboutContent;

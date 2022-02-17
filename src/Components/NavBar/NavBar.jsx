@@ -68,8 +68,8 @@ function NavBar() {
 						<Link to="/community">
 							<button className="main-btn-outline">Community</button>
 						</Link>
-						<Link to="/docs">
-							<button className="main-btn-outline">Docs</button>
+						<Link to="/about">
+							<button className="main-btn-outline">About</button>
 						</Link>
 						<button
 							className="main-btn-outline ml-3"

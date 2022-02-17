@@ -7,7 +7,7 @@ import LoadingSpinner from "./Components/UI/LoadingSpinner";
 const Home = lazy(() => import("./pages/Home"));
 const Login = lazy(() => import("./pages/Login"));
 const Signup = lazy(() => import("./pages/Signup"));
-const Docs = lazy(() => import("./pages/Docs"));
+const About = lazy(() => import("./pages/About"));
 const ShowSingleWil = lazy(() => import("./pages/ShowSingleWil"));
 const EditSingleWil = lazy(() => import("./pages/EditSingleWil"));
 const MarkdownPreview = lazy(() => import("./pages/MarkdownPreview"));
@@ -27,8 +27,8 @@ function App() {
 				<Route path="/signup">
 					<Signup />
 				</Route>
-				<Route path="/docs">
-					<Docs />
+				<Route path="/about">
+					<About />
 				</Route>
 				<Route path="/wil/:wilId">
 					<ShowSingleWil />

@@ -1,9 +1,16 @@
 import "./MainInputs.scss";
-import React, { useState, useRef, forwardRef, useImperativeHandle } from "react";
+import React, {
+	useState,
+	useRef,
+	forwardRef,
+	useImperativeHandle,
+} from "react";
 import CreatableSelect from "react-select/creatable";
-import Tags from "../../../data/qstsAnswers.json";
+// import Tags from "../../../data/qstsAnswers.json";
 import InputPreviewMarkdown from "../../UI/InputPreviewMarkdown";
 import { convertTagsObjectsShapetoArray } from "../../../utils/Heplers";
+import { ReactComponent as PrivateIcon } from "../../../assets/privateIcon.svg";
+import { ReactComponent as PublicIcon } from "../../../assets/publicIcon.svg";
 
 let answerSectionHeight = null;
 
@@ -25,13 +32,14 @@ const isValidNewOption = (inputValue, selectValue) =>
 const MainInput = forwardRef((props, ref) => {
 	const [qstInput, setQstInput] = useState();
 	const [answerInput, setAnswerInput] = useState();
+	const [isPublicWily, setIsPublicWily] = useState(true);
 	const [selectedOption, setSelectedOption] = useState([]);
 	const [showAnswerInput, setShowAnswerInput] = useState(false);
 
 	const onSubmitForm = (event) => {
 		event.preventDefault();
 		var tags = convertTagsObjectsShapetoArray(selectedOption);
-		props.addWilyHandler(qstInput, answerInput, true, tags);
+		props.addWilyHandler(qstInput, answerInput, isPublicWily, tags);
 	};
 
 	useImperativeHandle(ref, () => ({
@@ -40,6 +48,7 @@ const MainInput = forwardRef((props, ref) => {
 			setAnswerInput("");
 			setSelectedOption([]);
 			setShowAnswerInput(false);
+			setIsPublicWily(true);
 		},
 	}));
 
@@ -81,7 +90,7 @@ const MainInput = forwardRef((props, ref) => {
 				style={
 					showAnswerInput
 						? {
-								height: answerSectionHeight + "px",
+								minHeight: answerSectionHeight + "px",
 								overflow: "visible",
 						  }
 						: {
@@ -107,7 +116,7 @@ const MainInput = forwardRef((props, ref) => {
 						options={
 							selectedOption.length >= maxOptions
 								? selectedOption
-								: Tags.tags
+								: props.suggestedTags
 						}
 						styles={style}
 						className="react-select"
@@ -121,7 +130,29 @@ const MainInput = forwardRef((props, ref) => {
 						isValidNewOption={isValidNewOption}
 					/>
 				</div>
-				<button className="main-btn">Add a wily</button>
+				<div className="row mx-0 mb-3">
+					<div
+						className={`wil-status col-2 ${
+							isPublicWily ? "selected" : ""
+						}`}
+						onClick={(_) => setIsPublicWily(true)}
+					>
+						<span>public</span>
+						<PublicIcon />
+					</div>
+					<div
+						className={`wil-status col-2 ${
+							!isPublicWily ? "selected" : ""
+						}`}
+						onClick={(_) => setIsPublicWily(false)}
+					>
+						<span>private</span>
+						<PrivateIcon />
+					</div>
+					<div className="col-8 d-flex justify-content-end px-0">
+						<button className="main-btn">Add a wily</button>
+					</div>
+				</div>
 			</div>
 		</form>
 	);

@@ -48,9 +48,13 @@ function WiliesCards(props) {
 		});
 	}, []);
 
-	const changeFilteredTags = useMemo(() => (tags) => {
+	// console.log(searchTags)
+
+	const changeFilteredTags = (tags) => {
 		var filterTags = convertTagsObjectsShapetoArray(tags);
-		if (filterTags.length <= 0) setFilteredWilies(wilies);
+		if (filterTags.length <= 0) {
+			setFilteredWilies(wilies);
+		}
 		else {
 			setFilteredWilies(() => {
 				return wilies.filter((wily) => {
@@ -64,7 +68,7 @@ function WiliesCards(props) {
 			});
 		}
 		setSearchTags(tags);
-	}, []);
+	};
 
 	return (
 		<>
