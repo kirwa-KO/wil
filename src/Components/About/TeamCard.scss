@@ -1,0 +1,44 @@
+.team-container {
+	display: flex;
+	justify-content: center;
+	.team-card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		border: 2px solid #EBEAED;
+		box-sizing: border-box;
+		border-radius: 10px;
+		padding-top: 2rem;
+		// width: 370px;
+		width: 100%;
+		h5 {
+			font-weight: 500;
+			font-size: 22px;
+			line-height: 32px;
+			text-align: center;
+		}
+		p {
+			font-weight: bold;
+			font-size: 14px;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			color: rgba(21, 20, 57, 0.4);
+		}
+		.social-media {
+			width: 100%;
+			display: flex;
+			justify-content: space-around;
+			border-top: 2px solid #EBEAED;
+			a {
+				padding: 1rem;
+				width: 33%;
+				display: flex;
+				justify-content: center;
+			}
+			a:nth-child(2) {
+				border-left: 2px solid #EBEAED;
+				border-right: 2px solid #EBEAED;
+			}
+		}
+	}
+}

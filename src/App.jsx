@@ -13,38 +13,22 @@ const EditSingleWil = lazy(() => import("./pages/EditSingleWil"));
 const MarkdownPreview = lazy(() => import("./pages/MarkdownPreview"));
 const OtherUserWilies = lazy(() => import("./pages/OtherUserWilies"));
 const Community = lazy(() => import("./pages/Community"));
+const HireUs = lazy(() => import("./pages/HireUs"));
 
 function App() {
 	return (
 		<Suspense fallback={<LoadingSpinner />}>
 			<Switch>
-				<Route exact path="/">
-					<Home />
-				</Route>
-				<Route path="/login">
-					<Login />
-				</Route>
-				<Route path="/signup">
-					<Signup />
-				</Route>
-				<Route path="/about">
-					<About />
-				</Route>
-				<Route path="/wil/:wilId">
-					<ShowSingleWil />
-				</Route>
-				<Route path="/edit/wil/:wilId">
-					<EditSingleWil />
-				</Route>
-				<Route path="/preview">
-					<MarkdownPreview />
-				</Route>
-				<Route path="/community">
-					<Community />
-				</Route>
-				<Route path="/user/:username/wilies">
-					<OtherUserWilies />
-				</Route>
+				<Route exact path="/" component={Home} />
+				<Route path="/login" component={Login} />
+				<Route path="/signup" component={Signup} />
+				<Route path="/about" component={About} />
+				<Route path="/wil/:wilId" component={ShowSingleWil} />
+				<Route path="/edit/wil/:wilId" component={EditSingleWil} />
+				<Route path="/preview" component={MarkdownPreview} />
+				<Route path="/community" component={Community} />
+				<Route path="/user/:username/wilies" component={OtherUserWilies} />
+				<Route to="/hire-us" component={HireUs} />
 				<Route>
 					<Redirect to="/" />
 				</Route>
