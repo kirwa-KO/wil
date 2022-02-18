@@ -2,21 +2,21 @@
 
 .preview-container {
 	margin-bottom: 1rem;
-	textarea {
-		margin-bottom: 0;
-		border-top-right-radius: 0;
-		border-bottom-right-radius: 0;
-	}
-	textarea,
-	.markdown-container {
-		border: 1px solid $mainColor;
-	}
-	.markdown-container {
-		padding-top: 0.5rem;
-		padding-bottom: 0.5rem;
-		border-radius: 10px;
-		border-top-left-radius: 0;
-		border-bottom-left-radius: 0;
-		border-left: 0;
-	}
+	// textarea {
+	// 	margin-bottom: 0;
+	// 	border-top-right-radius: 0;
+	// 	border-bottom-right-radius: 0;
+	// }
+	// textarea,
+	// .markdown-container {
+	// 	border: 1px solid $mainColor;
+	// }
+	// .markdown-container {
+	// 	padding-top: 0.5rem;
+	// 	padding-bottom: 0.5rem;
+	// 	border-radius: 10px;
+	// 	border-top-left-radius: 0;
+	// 	border-bottom-left-radius: 0;
+	// 	border-left: 0;
+	// }
 }

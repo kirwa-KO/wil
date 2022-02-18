@@ -52,15 +52,15 @@ const MainInput = forwardRef((props, ref) => {
 		},
 	}));
 
-	const onChangeQstInput = (event) => {
+	const onChangeQstInput = (qst) => {
 		setShowAnswerInput(true);
-		if (event.target.value == "") setShowAnswerInput(false);
-		setQstInput(event.target.value);
+		if (qst == "") setShowAnswerInput(false);
+		setQstInput(qst);
 	};
 
-	const onChangeAnswerInput = (event) => {
-		setAnswerInput(event.target.value);
-	};
+	// const onChangeAnswerInput = (event) => {
+	// 	setAnswerInput(event.target.value);
+	// };
 
 	const itemsLinkinMobileRef = useRef();
 
@@ -80,10 +80,10 @@ const MainInput = forwardRef((props, ref) => {
 			<label htmlFor="">Question</label>
 			<InputPreviewMarkdown
 				onChangeInput={onChangeQstInput}
-				rows="5"
 				placeholder="Question..."
 				maxChars={maxQstChars}
 				value={qstInput}
+				height={178}
 			/>
 			<div
 				className="answer"
@@ -102,8 +102,8 @@ const MainInput = forwardRef((props, ref) => {
 			>
 				<label htmlFor="">Answer</label>
 				<InputPreviewMarkdown
-					onChangeInput={onChangeAnswerInput}
-					rows="10"
+					onChangeInput={setAnswerInput}
+					height={358}
 					placeholder="Answer..."
 					maxChars={maxAnswerChars}
 					value={answerInput}
