@@ -15,11 +15,14 @@
 	li,
 	.sort-date,
 	.main-txt-clr,
-	.wil-status span {
+	.wil-status span,
+	.language-markdown {
 		color: $secondColor !important;
 	}
 	input,
-	textarea,
+	// textarea,
+	.w-md-editor-aree.w-md-editor-input,
+	.wmde-markdown.wmde-markdown-color.w-md-editor-preview,
 	.react-select .react-select-pre__control,
 	.markdown-container {
 		background-color: #191b20 !important;
