@@ -1,0 +1,45 @@
+@import "../../../imports/colors";
+
+
+.wily {
+	margin-bottom: 8px;
+	padding-bottom: 2rem;
+	padding-top: 1rem;
+	.header {
+		padding: 1rem 2rem 0rem 2rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		cursor: pointer;
+		h4 {
+			font-size: 20px;
+			line-height: 22px;
+			font-weight: 500;
+			color: $mainColor;
+		}
+		svg {
+			cursor: pointer;
+		}
+	}
+	.qst-container,
+	.answer-container {
+		width: 90%;
+	}
+	.date-label {
+		padding-left: 2rem;
+	}
+	hr {
+		width: 94%;
+	}
+	.answer {
+		padding-left: 2rem;
+		padding-right: 2rem;
+		margin: 0;
+		overflow: hidden;
+		// transition: all 0.3s ease-in-out;
+		position: relative;
+		.content {
+			display: flex;
+		}
+	}
+}

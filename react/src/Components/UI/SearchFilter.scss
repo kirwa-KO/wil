@@ -1,0 +1,27 @@
+@import "../../imports/colors";
+
+.search-container {
+	padding: 0;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	.react-select {
+		width: 40%;
+		.react-select-pre__control {
+			background-color: $secondColor;
+			border-color: $mainColor;
+		}
+	}
+	.sort-date {
+		background-color: $secondColor;
+		padding: 0.5rem 1rem;
+		border-radius: 4px;
+		border: 1px solid $mainColor;
+		transition: all 0.3s ease-in-out;
+		cursor: pointer;
+		color: $mainColor;
+	}
+}
+
