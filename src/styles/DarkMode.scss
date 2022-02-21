@@ -8,6 +8,7 @@
 	.border-none {
 		border: none !important;
 	}
+	h1,
 	h4,
 	h5,
 	p,
@@ -16,7 +17,8 @@
 	.sort-date,
 	.main-txt-clr,
 	.wil-status span,
-	.language-markdown {
+	.language-markdown,
+	.step-name {
 		color: $secondColor !important;
 	}
 	input,

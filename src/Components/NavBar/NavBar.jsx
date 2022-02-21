@@ -3,6 +3,7 @@ import { ReactComponent as Logo } from "../../assets/logo.svg";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import AuthContext from "../../store/auth-context";
+import CustomStyle from "./CustomStyle";
 
 function NavBar() {
 	const authCtx = useContext(AuthContext);
@@ -16,6 +17,7 @@ function NavBar() {
 				</Link>
 				{!isloggedIn && (
 					<div className="right-items">
+						<CustomStyle authCtx={authCtx} />
 						<Link to="/community">
 							<button className="main-btn-outline">Community</button>
 						</Link>
@@ -29,42 +31,7 @@ function NavBar() {
 				)}
 				{isloggedIn && (
 					<div className="right-items">
-						<div className="params">
-							<div
-								className="light-mode brdr-2-dark"
-								onClick={() => authCtx.toggleLightMode()}
-							>
-								<div
-									className="spot"
-									style={
-										authCtx.lightMode
-											? {
-												marginLeft: "auto",
-											}
-											: {
-												marginLeft: "2px",
-											}
-									}
-								></div>
-							</div>
-							<div
-								className="show-particuler brdr-2-dark"
-								onClick={() => authCtx.toggleShowParticules()}
-							>
-								<div
-									className="spot"
-									style={
-										authCtx.showParticuler
-											? {
-												marginLeft: "auto",
-											}
-											: {
-												marginLeft: "2px",
-											}
-									}
-								></div>
-							</div>
-						</div>
+						<CustomStyle authCtx={authCtx} />
 						<Link to="/community">
 							<button className="main-btn-outline">Community</button>
 						</Link>

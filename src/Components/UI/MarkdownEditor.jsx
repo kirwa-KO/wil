@@ -11,7 +11,7 @@ function MarkdownEditor(props) {
 			onChange={props.onChange}
 			toolbarsExclude={['github',]}
 			theme={authCtx.lightMode ? 'dark' : 'light'}
-			editorClass="md-editor"
+			editorClass={`md-editor ${props.className ? props.className : ''}`}
 			language="en-US"
 			style={{
 				height: props.height,

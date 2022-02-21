@@ -1,0 +1,59 @@
+@import "../../../imports/colors";
+
+.landing-section {
+	// background: linear-gradient(257.55deg, #EAF2FA 3.3%, rgba(234, 242, 250, 0) 89.36%);
+	padding-bottom: 40px;
+	padding-top: 110px;
+	color: $mainColor;
+	p {
+		font-size: 18px;
+		line-height: 23px;
+	}
+	.right-section {
+		h1 {
+			font-weight: bold;
+			font-size: 35px;
+			line-height: 45px;
+			margin-bottom: 20px;
+		}
+		.step {
+			display: flex;
+			margin-bottom: 12px;
+			margin-top: 12px;
+			.step-index {
+				width: 30px;
+				height: 30px;
+				background: #EAF2FA;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border-radius: 50%;
+				span {
+					font-weight: bold;
+					font-size: 18px;
+					line-height: 23px;
+				}
+			}
+			.step-name {
+				font-weight: bold;
+				font-size: 22px;
+				line-height: 28px;
+				margin-left: 12px;
+			}
+		}
+		.desc {
+			margin-left: 42px;
+		}
+		.never-forget {
+			margin-top: 62px;
+			font-weight: bold;
+		}
+	}
+	.left-section {
+		display: flex;
+		align-items: center;
+	}
+	.ps {
+		margin-top: 48px;
+	}
+}

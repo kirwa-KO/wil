@@ -8,7 +8,8 @@ import { useState, useEffect, useRef } from "react";
 import { useAlert } from "react-alert";
 import LoadingSpinner from "../Components/UI/LoadingSpinner";
 import { convertTagsAraayObjsShapetoObjects } from "../utils/Heplers";
-import { Link } from "react-router-dom";
+import LandingPart from "../Components/Home/LandingPart/LandingPart";
+import MarkdownEditor from "../Components/UI/MarkdownEditor";
 
 let isAlertExistBefore = false;
 
@@ -113,21 +114,10 @@ function Home() {
 	return (
 		<Layout>
 			{isLoading && <LoadingSpinner />}
-			{!authCtx.isLoggedIn && <div className="content-container">
-				<div className="container content bg-dark-darkmode">
-					<h4 className="text-center">How to use Wil :</h4>
-					<p className="text-center">
-						Lorem ipsum dolor sit, amet consectetur adipisicing
-						elit. Blanditiis minima reprehenderit nisi eligendi.
-						Maxime explicabo, iusto est ipsum error autem libero
-						distinctio deleniti, vero accusamus soluta. Est
-						blanditiis mollitia non!
-					</p>
-					<div className="text-center">
-						<Link to="/docs">Show more how wil work ?</Link>
-					</div>
-				</div>
-			</div>}
+			{!authCtx.isLoggedIn && <>
+				<LandingPart />
+				<MarkdownEditor className="d-none"/>
+			</>}
 			{authCtx.isLoggedIn && (
 				<MainInputs
 					ref={mainInputsRef}

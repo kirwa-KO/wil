@@ -1,5 +1,4 @@
 import "./PreviewContent.scss";
-// import Markdown from "../../Components/UI/MarkdownPreview";
 import { useState } from "react";
 import MarkdownEditor from "../UI/MarkdownEditor";
 

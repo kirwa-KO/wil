@@ -71,7 +71,7 @@ function WiliesCards(props) {
 	};
 
 	return (
-		<>
+		<div id="wilies">
 			<SearchFilter
 				sort={sort}
 				setSort={setSort}
@@ -94,7 +94,7 @@ function WiliesCards(props) {
 				})}
 				{filteredWilies.length <= 0 && <ErrorContainer errorMessage="No Wily is Found..!!" />}
 			</div>
-		</>
+		</div>
 	);
 }
 
