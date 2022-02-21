@@ -1,39 +1,28 @@
 import "./InputPreviewMarkdown.scss";
-// import Markdown from "./Markdown";
-import Editor from 'md-editor-rt';
-import 'md-editor-rt/lib/style.css';
-import { useState } from "react";
+import MarkdownEditor from "../UI/MarkdownEditor"
 
 function InputPreviewMarkdown(props) {
-	const [text, setText] = useState('hello md-editor-rt！');
-	const [theme] = useState('light');
-
-	console.log(text);
 
 	return (
 		<div className={`row w-100 preview-container ${props.className}`}>
-			{/* <MDEditor
-				value={props.value}
+			{/* <Editor
+				modelValue={props.value}
 				onChange={props.onChangeInput}
-				textareaProps={{
-					placeholder: props.placeholder,
-					maxLength: props.maxChars,
+				toolbarsExclude={['github', ]}
+				theme={theme}
+				editorClass="md-editor"
+				language="en-US"
+				style={{
+					height: props.height,
 				}}
-				height={props.height}
+				editorId={props.id}
 			/> */}
 
-			<Editor
-				modelValue={text}
-				onChange={(modelValue) => {
-					setText(modelValue);
-				}}
-				// toolbarsExclude={['github', ]}
-				// theme={theme}
-				// editorClass="md-editor"
-				// language="en-US"
-				// style={{
-				// 	height: props.height,
-				// }}
+			<MarkdownEditor 
+				value={props.value}
+				onChange={props.onChangeInput}
+				height={props.height}
+				id={props.id}
 			/>
 
 		</div>

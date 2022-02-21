@@ -83,7 +83,8 @@ const MainInput = forwardRef((props, ref) => {
 				placeholder="Question..."
 				maxChars={maxQstChars}
 				value={qstInput}
-				height={178}
+				height={278}
+				id="qst-input"
 			/>
 			<div
 				className="answer"
@@ -108,6 +109,7 @@ const MainInput = forwardRef((props, ref) => {
 					maxChars={maxAnswerChars}
 					value={answerInput}
 					className="ml-0"
+					id="answer-input"
 				/>
 				<div className="position-relative">
 					<CreatableSelect

@@ -32,7 +32,7 @@
 		color: #808191;
 	}
 	input:focus,
-	textarea:focus,
+	// textarea:focus,
 	.wil-status {
 		border: 1px solid rgb(243, 249, 253) !important;
 	}
@@ -82,6 +82,32 @@
 	.spinner:after {
 		border: 6px solid $secondColor;
 		border-color: $secondColor transparent $secondColor transparent;
+	}
+	.md-editor {
+		border: none !important;
+		.md-toolbar-wrapper {
+			.md-toolbar {
+				border-bottom: none !important;
+			}
+		}
+		.md-content {
+			border-radius: 10px;
+			border: 1px solid #808191;
+			.md-input-wrapper {
+				textarea {
+					// background-color: #191b20 !important;
+					color: #fff !important;
+					border: none;
+				}
+			}
+			.md-input-wrapper textarea,
+			.md-preview-wrapper {
+				background-color: #191b20 !important;
+			}
+		}
+	}
+	.md-editor.md-dark {
+		background-color: transparent !important;
 	}
 }
 

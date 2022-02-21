@@ -270,11 +270,13 @@ input:focus {
 		border: 1px solid $mainColor;
 		.md-input-wrapper {
 			textarea {
-				// border: 1px solid $lightSecondColor !important;
 				background-color: $lightSecondColor;
 				color: $placeHolderColor;
-				// border-radius: 10px;
 			}
 		}
 	}
+}
+
+.md-editor-previw {
+	background-color: transparent !important;
 }

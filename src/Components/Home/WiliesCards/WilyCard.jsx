@@ -1,6 +1,6 @@
 import { ReactComponent as PlusIcon } from "../../../assets/PlusIcon.svg";
 import { useState, useRef } from "react";
-import Markdown from "../../UI/Markdown";
+import MarkdownPreview from "../../UI/MarkdownPreview";
 import { Link } from "react-router-dom";
 import "./WilyCard.scss";
 import getFormatedDate from "../../../utils/FormatDate";
@@ -28,7 +28,7 @@ function WilyCard(props) {
 			</span>
 			<div className="header" onClick={toggleOpen}>
 				<div className="qst-container">
-					<Markdown value={wily.question} />
+					<MarkdownPreview value={wily.question} />
 				</div>
 				<PlusIcon
 					width={26}
@@ -80,8 +80,8 @@ function WilyCard(props) {
 				className="answer"
 			>
 				<div className="content">
-					<div>
-						<Markdown value={wily.answer} />
+					<div className="answer-container">
+						<MarkdownPreview value={wily.answer} />
 					</div>
 					<div></div>
 				</div>
