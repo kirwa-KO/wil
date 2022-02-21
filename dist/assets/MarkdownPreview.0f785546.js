@@ -1,0 +1,1 @@
+import{E as r}from"./style.938310fd.js";import{j as o}from"./vendor.b5e3c5d1.js";function s({id:d,value:e}){return o(r,{modelValue:e,editorClass:"md-editor-previw",previewOnly:!0,language:"en-US"})}export{s as M};

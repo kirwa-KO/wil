@@ -1,5 +1,5 @@
 import "./WilContent.scss";
-import Markdown from "../../UI/Markdown";
+import MarkdownPreview from "../../UI/MarkdownPreview";
 import getFormatedDate from "../../../utils/FormatDate";
 import { Link } from "react-router-dom";
 
@@ -19,7 +19,7 @@ function WilContent(props) {
 					{getFormatedDate(wily.updatedAt)}
 				</span>
 				<div className="qst-container">
-					<Markdown value={wily.question} />
+					<MarkdownPreview value={wily.question} />
 				</div>
 				<div className="tags-container">
 					{wily.tags &&
@@ -31,7 +31,7 @@ function WilContent(props) {
 				</div>
 				<hr />
 				<div className="answer-container">
-					<Markdown value={wily.answer} />
+					<MarkdownPreview value={wily.answer} />
 				</div>
 				{wily.creator &&
 					props.authenticatedUsername === wily.creator.username && (
