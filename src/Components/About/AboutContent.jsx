@@ -74,17 +74,17 @@ function AboutContent() {
 						img={Twelve}
 						name="Abdelali Ait Hmid"
 						role="Backend Developer"
-						github="https://github.com/twelve0"
-						twitter="https://twitter/twelve0"
-						instagram="https://instagram/twelve0"
+						github={null}
+						twitter="https://twitter.com/AbdelaliAithmid"
+						instagram={null}
 						/>
 					<TeamCard
 						img={kirwaKO}
 						name="Imran Baali"
 						role="Frontend Developer"
 						github="https://github.com/kirwa-KO"
-						twitter="https://twitter/kirwa-KO"
-						instagram="https://instagram/kirwa-KO"
+						twitter="https://twitter.com/kirwaKO"
+						instagram="https://www.instagram.com/baali_imran/"
 						/>
 				</div>
 				<Link to="/hire-us">

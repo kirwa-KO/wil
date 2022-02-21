@@ -24,6 +24,7 @@ function WilyCard(props) {
 	return (
 		<div className="wily wily-container">
 			<span className="date-label">
+			<img width={24} height={24} className="mr-1" src={`https://avatars.dicebear.com/api/adventurer/${wily.creator.username}.svg`} alt="" />
 				{wily.creator.username} • {getFormatedDate(wily.updatedAt)}
 			</span>
 			<div className="header" onClick={toggleOpen}>
@@ -77,7 +78,7 @@ function WilyCard(props) {
 						  }
 				}
 				ref={itemsLinkinMobileRef}
-				className="answer"
+				className="answer animate"
 			>
 				<div className="content">
 					<div className="answer-container">

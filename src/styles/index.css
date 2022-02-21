@@ -16,9 +16,10 @@ code {
 * {
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif !important;
+}
+.animate {
 	transition: all 0.3s ease-in-out;
 }
-
 p,
 pre {
 	margin-bottom: 0.75rem;
