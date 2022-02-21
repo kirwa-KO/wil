@@ -1,7 +1,7 @@
 import "./TeamCard.scss";
-import Github from "../../assets/icons/github.svg";
-import Twitter from "../../assets/icons/twitter.svg";
-import Instagram from "../../assets/icons/instagram.svg";
+import Github from "../../assets/icons/Github.svg";
+import Twitter from "../../assets/icons/Twitter.svg";
+import Instagram from "../../assets/icons/Instagram.svg";
 
 function TeamCard(props) {
 	return (
