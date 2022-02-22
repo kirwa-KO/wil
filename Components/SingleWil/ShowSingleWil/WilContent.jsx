@@ -14,11 +14,12 @@ function WilContent(props) {
 		<div className="wil-content-container">
 			<div className="container wil-content wily-container">
 				<span className="date-label">
+					<img width={24} height={24} className="mr-1" src={`https://avatars.dicebear.com/api/adventurer/${wily.creator.username}.svg`} alt="" />
 					{wily.creator && wily.creator.username} •{" "}
 					{getFormatedDate(wily.updatedAt)}
 				</span>
 				<div className="qst-container">
-					<MarkdownPreview value={wily.question} />
+					<MarkdownPreview value={wily.question} id={`wily_${wily._id}`} />
 				</div>
 				<div className="tags-container">
 					{wily.tags &&
@@ -30,7 +31,7 @@ function WilContent(props) {
 				</div>
 				<hr />
 				<div className="answer-container">
-					<MarkdownPreview value={wily.answer} />
+					<MarkdownPreview value={wily.answer} id={`wily_${wily._id}`} />
 				</div>
 				{wily.creator &&
 					props.authenticatedUsername === wily.creator.username && (

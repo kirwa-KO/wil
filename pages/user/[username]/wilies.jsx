@@ -15,30 +15,7 @@ function OtherUserWilies(props) {
 	const authCtx = useContext(AuthContext);
 	const { isLoading, error, sendRequest: sendGetWiliesRequest } = useHttp();
 	const [wilies, setWilies] = useState(props.wilies);
-	// const [suggestedTags, setSuggestedTags] = useState([]);
 	const router = useRouter();
-	// const { username } = router.query;
-
-	// const getWilies = (data) => {
-	// 	setWilies(data.wilies);
-	// };
-
-	// const getTags = (data) => {
-	// 	setSuggestedTags(convertTagsAraayObjsShapetoObjects(data.tags));
-	// };
-
-	// useEffect(() => {
-	//     if (username) {
-	//         sendGetWiliesRequest(
-	//             { url: `${process.env.NEXT_PUBLIC_API_LINK}/feed/wilies/${username}` },
-	//             getWilies
-	//         );
-	//     }
-	// 	sendGetWiliesRequest(
-	// 		{ url: `${process.env.NEXT_PUBLIC_API_LINK}/feed/tags` },
-	// 		getTags
-	// 	);
-	// }, [username]);
 
 	const deleteWilySuccessed = (wilyData) => {
 		if (isAlertExistBefore) alert.removeAll();
@@ -103,7 +80,7 @@ export async function getStaticProps({ params }) {
 }
 
 export const getStaticPaths = async (_) => {
-    const response = await fetch(
+	const response = await fetch(
 		`${process.env.NEXT_PUBLIC_API_LINK}/feed/users`
 	);
 	const data = await response.json();

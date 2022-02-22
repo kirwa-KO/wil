@@ -84,6 +84,7 @@ function WiliesCards(props) {
 					return (
 						<WilyCard
 							key={wily._id}
+                            id={wily._id}
 							wily={wily}
 							isLoggedIn={authCtx.isLoggedIn}
 							authenticatedUsername={authCtx.username}

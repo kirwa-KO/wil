@@ -28,7 +28,7 @@ function WilyCard(props) {
 			</span>
 			<div className="header" onClick={toggleOpen}>
 				<div className="qst-container">
-					<MarkdownPreview value={wily.question} />
+					<MarkdownPreview value={wily.question} id={`wily_${wily._id}`} />
 				</div>
 				<Image
 					width={26}
@@ -36,15 +36,7 @@ function WilyCard(props) {
                     src="/imgs/PlusIcon.svg"
                     alt="plus icon"
 					onClick={toggleOpen}
-					style={
-						isOpen
-							? {
-									transform: "rotate(180deg)",
-							  }
-							: {
-									transfrom: "rotate(180deg)",
-							  }
-					}
+                    className={`animate ${isOpen ? "rotate-180" : ""}`}
 				/>
 			</div>
 			<div
@@ -83,7 +75,7 @@ function WilyCard(props) {
 			>
 				<div className="content">
 					<div className="answer-container">
-						<MarkdownPreview value={wily.answer} />
+						<MarkdownPreview value={wily.answer} id={`wily_${wily._id}`} />
 					</div>
 					<div></div>
 				</div>

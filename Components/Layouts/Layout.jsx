@@ -11,10 +11,9 @@ function Layout(props) {
 				authCtx.lightMode ? "dark-mode" : ""
 			}`}
 			style={
-				(authCtx.lightMode && !authCtx.showParticuler) ? {
-					backgroundColor: "#1F2128",
-					minHeight: "100vh"
-				} : {minHeight: "100vh"}
+				(authCtx.lightMode && !authCtx.showParticuler)
+                ? { backgroundColor: "#1F2128", minHeight: "100vh" }
+                : {minHeight: "100vh"}
 			}
 		>
 			<NavBar />

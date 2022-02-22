@@ -6,36 +6,25 @@ import AuthContext from "../store/auth-context";
 import useHttp from "../hooks/useHttp";
 import { useState, useEffect, useRef } from "react";
 import { useAlert } from "react-alert";
-// import LoadingSpinner from "../Components/UI/LoadingSpinner";
 import { convertTagsAraayObjsShapetoObjects } from "../utils/Heplers";
 import LandingPart from "../Components/Home/LandingPart/LandingPart";
-import MarkdownEditor from "../Components/UI/MarkdownEditor";
+// import MarkdownEditor from "../Components/UI/MarkdownEditor";
 
 let isAlertExistBefore = false;
 
 function Home(props) {
 	const authCtx = useContext(AuthContext);
-	const { isLoading, error, sendRequest: sendGetWiliesRequest } = useHttp();
+	// const { isLoading, error, sendRequest: sendGetWiliesRequest } = useHttp();
+	const { error, sendRequest: sendGetWiliesRequest } = useHttp();
 	const [wilies, setWilies] = useState(props.wilies);
-	const [suggestedTags, setSuggestedTags] = useState(props.tags);
+	const suggestedTags = props.tags;
 
 	const getWilies = (data) => {
 		setWilies(data.wilies);
 	};
-
-	// const getTags = (data) => {
-	// 	setSuggestedTags(convertTagsAraayObjsShapetoObjects(data.tags));
-	// };
-
 	const mainInputsRef = useRef();
 
 	useEffect(() => {
-		// if (authCtx.isLoggedIn === false) {
-		// 	sendGetWiliesRequest(
-		// 		{ url: `${process.env.NEXT_PUBLIC_API_LINK}/feed/wilies/public` },
-		// 		getWilies
-		// 	);
-		// } else
 		if (authCtx.isLoggedIn === true) {
 			sendGetWiliesRequest(
 				{
@@ -47,10 +36,6 @@ function Home(props) {
 				getWilies
 			);
 		}
-		// sendGetWiliesRequest(
-		// 	{ url: `${process.env.NEXT_PUBLIC_API_LINK}/feed/tags` },
-		// 	getTags
-		// );
 	});
 
 	const deleteWilySuccessed = (wilyData) => {
@@ -117,7 +102,6 @@ function Home(props) {
 			{!authCtx.isLoggedIn && (
 				<>
 					<LandingPart />
-					<MarkdownEditor className="d-none" />
 				</>
 			)}
 			{authCtx.isLoggedIn && (

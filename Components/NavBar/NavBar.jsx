@@ -4,7 +4,6 @@ import AuthContext from "../../store/auth-context";
 import CustomStyle from "./CustomStyle";
 import Image from 'next/image'
 
-
 function NavBar() {
 	const authCtx = useContext(AuthContext);
 	const isloggedIn = authCtx.isLoggedIn;

@@ -1,7 +1,6 @@
 import React, {
 	useState,
 	useRef,
-	forwardRef,
 	useImperativeHandle,
 } from "react";
 import CreatableSelect from "react-select/creatable";
@@ -26,7 +25,7 @@ const style = {
 const isValidNewOption = (inputValue, selectValue) =>
 	inputValue.length > 0 && selectValue.length < maxOptions;
 
-const MainInput = forwardRef((props, ref) => {
+const MainInput = React.forwardRef((props, ref) => {
 	const [qstInput, setQstInput] = useState();
 	const [answerInput, setAnswerInput] = useState();
 	const [isPublicWily, setIsPublicWily] = useState(true);
