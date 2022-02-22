@@ -1,0 +1,30 @@
+@import "../imports/colors";
+
+.community-container {
+	margin-top: 5rem;
+	.content {
+		.user-card {
+			display: flex;
+			align-items: center;
+			background-color: #fff;
+			border-radius: 10px;
+			border: 1px solid $mainColor;
+			box-shadow: 0 15px 35px 0 rgb(64 68 82 / 8%);
+			padding: 1.3rem 2rem;
+			margin-bottom: 2rem;
+			cursor: pointer;
+			img {
+				width: 64px;
+				height: 64px;
+				margin-right: 1rem;
+			}
+			.user-info {
+				h3 {
+					font-size: 1.3rem;
+					// margin-bottom: 1.5rem;
+					font-weight: 700;
+				}
+			}
+		}
+	}
+}

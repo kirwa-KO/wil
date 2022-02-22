@@ -1,0 +1,46 @@
+@import "../imports/colors";
+
+.navbar-container {
+	background-color: $whiteColor;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	box-shadow: 1px 1px 12px rgb(0 0 0 / 15%);
+	.nav-items {
+		display: flex;
+		align-items: center;
+		.right-items {
+			margin-left: auto;
+			display: flex;
+			align-items: center;
+			.params {
+				.light-mode,
+				.show-particuler {
+					width: 52px;
+					height: 20px;
+					cursor: pointer;
+					border: 2px solid $mainColor;
+					border-radius: 50px;
+					display: flex;
+					align-items: center;
+					.spot {
+						margin-left: 2px;
+						margin-right: 2px;
+						width: 14px;
+						height: 14px;
+						background-color: $mainColor;
+						border-radius: 50%;
+					}
+				}
+				.light-mode {
+					margin-bottom: 2px;
+				}
+				.show-particuler {
+					margin-top: 2px;
+				}
+			}
+			button {
+				margin-left: 1rem;
+			}
+		}
+	}
+}
