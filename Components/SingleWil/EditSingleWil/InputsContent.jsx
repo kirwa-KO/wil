@@ -1,12 +1,13 @@
 import getFormatedDate from "../../../utils/FormatDate";
 import CreatableSelect from "react-select/creatable";
-import Tags from "../../../data/qstsAnswers.json";
+// import Tags from "../../../data/qstsAnswers.json";
 import { useState } from "react";
 import { convertTagsAraayObjsShapetoObjects } from "../../../utils/Heplers";
 import InputPreviewMarkdown from "../../UI/InputPreviewMarkdown";
 import { convertTagsObjectsShapetoArray } from "../../../utils/Heplers";
-import { ReactComponent as PrivateIcon } from "../../../assets/privateIcon.svg";
-import { ReactComponent as PublicIcon } from "../../../assets/publicIcon.svg";
+// import { ReactComponent as PrivateIcon } from "../../../assets/privateIcon.svg";
+// import { ReactComponent as PublicIcon } from "../../../assets/publicIcon.svg";
+import Image from "next/image";
 
 const maxOptions = Number(process.env.NEXT_PUBLIC_MAX_TAGS);
 const maxQstChars = Number(process.env.NEXT_PUBLIC_MAX_QST_CHARS);
@@ -80,10 +81,10 @@ function InputsContent(props) {
 							onChange={setSelectedOption}
 							value={selectedOption}
 							options={
-								tagsArrays &&
+								selectedOption &&
 								selectedOption.length >= maxOptions
 									? selectedOption
-									: Tags.tags
+									: props.tags
 							}
 							styles={style}
 							className="react-select"
@@ -104,7 +105,7 @@ function InputsContent(props) {
 								onClick={(_) => setIsPublicWily(true)}
 							>
 								<span>public</span>
-								<PublicIcon />
+								<Image width={16} height={16} src="/imgs/publicIcon.svg" />
 							</div>
 							<div
 								className={`wil-status col-2 ${
@@ -113,7 +114,7 @@ function InputsContent(props) {
 								onClick={(_) => setIsPublicWily(false)}
 							>
 								<span>private</span>
-								<PrivateIcon />
+								<Image width={16} height={16} src="/imgs/privateIcon.svg" />
 							</div>
 							<div className="col-8 d-flex justify-content-end px-0">
 								<button className="main-btn">Add a wily</button>

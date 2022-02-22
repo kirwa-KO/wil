@@ -6,36 +6,37 @@ import AuthContext from "../store/auth-context";
 import useHttp from "../hooks/useHttp";
 import { useState, useEffect, useRef } from "react";
 import { useAlert } from "react-alert";
-import LoadingSpinner from "../Components/UI/LoadingSpinner";
+// import LoadingSpinner from "../Components/UI/LoadingSpinner";
 import { convertTagsAraayObjsShapetoObjects } from "../utils/Heplers";
 import LandingPart from "../Components/Home/LandingPart/LandingPart";
 import MarkdownEditor from "../Components/UI/MarkdownEditor";
 
 let isAlertExistBefore = false;
 
-function Home() {
+function Home(props) {
 	const authCtx = useContext(AuthContext);
 	const { isLoading, error, sendRequest: sendGetWiliesRequest } = useHttp();
-	const [wilies, setWilies] = useState([]);
-	const [suggestedTags, setSuggestedTags] = useState([]);
+	const [wilies, setWilies] = useState(props.wilies);
+	const [suggestedTags, setSuggestedTags] = useState(props.tags);
 
 	const getWilies = (data) => {
 		setWilies(data.wilies);
 	};
 
-	const getTags = (data) => {
-		setSuggestedTags(convertTagsAraayObjsShapetoObjects(data.tags));
-	};
+	// const getTags = (data) => {
+	// 	setSuggestedTags(convertTagsAraayObjsShapetoObjects(data.tags));
+	// };
 
 	const mainInputsRef = useRef();
 
 	useEffect(() => {
-		if (authCtx.isLoggedIn === false) {
-			sendGetWiliesRequest(
-				{ url: `${process.env.NEXT_PUBLIC_API_LINK}/feed/wilies/public` },
-				getWilies
-			);
-		} else {
+		// if (authCtx.isLoggedIn === false) {
+		// 	sendGetWiliesRequest(
+		// 		{ url: `${process.env.NEXT_PUBLIC_API_LINK}/feed/wilies/public` },
+		// 		getWilies
+		// 	);
+		// } else
+		if (authCtx.isLoggedIn === true) {
 			sendGetWiliesRequest(
 				{
 					url: `${process.env.NEXT_PUBLIC_API_LINK}/feed/wilies`,
@@ -46,11 +47,11 @@ function Home() {
 				getWilies
 			);
 		}
-		sendGetWiliesRequest(
-			{ url: `${process.env.NEXT_PUBLIC_API_LINK}/feed/tags` },
-			getTags
-		);
-	}, []);
+		// sendGetWiliesRequest(
+		// 	{ url: `${process.env.NEXT_PUBLIC_API_LINK}/feed/tags` },
+		// 	getTags
+		// );
+	});
 
 	const deleteWilySuccessed = (wilyData) => {
 		if (isAlertExistBefore) alert.removeAll();
@@ -60,19 +61,22 @@ function Home() {
 		});
 	};
 
-	const deleteWilyHandler = useMemo(() => (wilyId) => {
-		sendGetWiliesRequest(
-			{
-				url: `${process.env.NEXT_PUBLIC_API_LINK}/feed/wily/${wilyId}`,
-				headers: {
-					"Content-Type": "application/json",
-					Authorization: `Bearer ${authCtx.token}`,
+	const deleteWilyHandler = useMemo(
+		() => (wilyId) => {
+			sendGetWiliesRequest(
+				{
+					url: `${process.env.NEXT_PUBLIC_API_LINK}/feed/wily/${wilyId}`,
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: `Bearer ${authCtx.token}`,
+					},
+					method: "DELETE",
 				},
-				method: "DELETE",
-			},
-			deleteWilySuccessed
-		);
-	}, []);
+				deleteWilySuccessed
+			);
+		},
+		[]
+	);
 
 	const addWilySuccessed = (wilyData) => {
 		mainInputsRef.current.resetInputs();
@@ -84,40 +88,44 @@ function Home() {
 		});
 	};
 
-	const addWilyHandler = useMemo(() => (question, answer, isPublic, tags) => {
-		sendGetWiliesRequest(
-			{
-				url: `${process.env.NEXT_PUBLIC_API_LINK}/feed/wily`,
-				headers: {
-					"Content-Type": "application/json",
-					Authorization: `Bearer ${authCtx.token}`,
+	const addWilyHandler = useMemo(
+		() => (question, answer, isPublic, tags) => {
+			sendGetWiliesRequest(
+				{
+					url: `${process.env.NEXT_PUBLIC_API_LINK}/feed/wily`,
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: `Bearer ${authCtx.token}`,
+					},
+					method: "POST",
+					body: {
+						question,
+						answer,
+						isPublic,
+						tags,
+					},
 				},
-				method: "POST",
-				body: {
-					question,
-					answer,
-					isPublic,
-					tags,
-				},
-			},
-			addWilySuccessed
-		);
-	}, []);
-	
+				addWilySuccessed
+			);
+		},
+		[]
+	);
+
 	const alert = useAlert();
 
 	if (error) {
 		alert.show(error, { type: "error", timeout: 5000 });
 	}
 
-
 	return (
 		<Layout>
-			{isLoading && <LoadingSpinner />}
-			{!authCtx.isLoggedIn && <>
-				<LandingPart />
-				<MarkdownEditor className="d-none" />
-			</>}
+			{/* {isLoading && <LoadingSpinner />} */}
+			{!authCtx.isLoggedIn && (
+				<>
+					<LandingPart />
+					<MarkdownEditor className="d-none" />
+				</>
+			)}
 			{authCtx.isLoggedIn && (
 				<MainInputs
 					ref={mainInputsRef}
@@ -125,13 +133,34 @@ function Home() {
 					suggestedTags={suggestedTags}
 				/>
 			)}
-			{wilies.length > 0 && <WiliesCards
-				deleteWilyHandler={deleteWilyHandler}
-				wilies={wilies}
-				suggestedTags={suggestedTags}
-			/>}
+			{wilies.length > 0 && (
+				<WiliesCards
+					deleteWilyHandler={deleteWilyHandler}
+					wilies={wilies}
+					suggestedTags={suggestedTags}
+				/>
+			)}
 		</Layout>
 	);
+}
+
+export async function getStaticProps() {
+	const responseWilies = await fetch(
+		`${process.env.NEXT_PUBLIC_API_LINK}/feed/wilies/public`
+	);
+	const dataWilies = await responseWilies.json();
+
+	const responseTags = await fetch(
+		`${process.env.NEXT_PUBLIC_API_LINK}/feed/tags`
+	);
+	const dataTags = await responseTags.json();
+
+	return {
+		props: {
+			wilies: dataWilies.wilies,
+			tags: convertTagsAraayObjsShapetoObjects(dataTags.tags),
+		},
+	};
 }
 
 export default Home;

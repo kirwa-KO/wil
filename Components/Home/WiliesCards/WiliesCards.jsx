@@ -80,7 +80,7 @@ function WiliesCards(props) {
 				suggestedTags={props.suggestedTags}
 			/>
 			<div className="wilies-container container">
-				{filteredWilies.length > 0 && filteredWilies.map(function qstAnswerMapped(wily) {
+				{filteredWilies && filteredWilies.length > 0 && filteredWilies.map(function qstAnswerMapped(wily) {
 					return (
 						<WilyCard
 							key={wily._id}
@@ -91,7 +91,7 @@ function WiliesCards(props) {
 						/>
 					);
 				})}
-				{filteredWilies.length <= 0 && <ErrorContainer errorMessage="No Wily is Found..!!" />}
+				{filteredWilies && filteredWilies.length <= 0 && <ErrorContainer errorMessage="No Wily is Found..!!" />}
 			</div>
 		</div>
 	);

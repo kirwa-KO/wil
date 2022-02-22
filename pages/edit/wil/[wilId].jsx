@@ -1,28 +1,35 @@
-import Layout from "../Components/Layouts/Layout";
+import Layout from "../../../Components/Layouts/Layout";
 import { useContext, useState, useEffect } from "react";
-import AuthContext from "../store/auth-context";
-import { useParams } from "react-router-dom";
-import InputsContent from "../Components/SingleWil/EditSingleWil/InputsContent";
-import useHttp from "../hooks/useHttp";
-import LoadingSpinner from "../Components/UI/LoadingSpinner";
-import ErrorContainer from "../Components/UI/ErrorContainer";
+import AuthContext from "../../../store/auth-context";
+import InputsContent from "../../../Components/SingleWil/EditSingleWil/InputsContent";
+import useHttp from "../../../hooks/useHttp";
+import LoadingSpinner from "../../../Components/UI/LoadingSpinner";
+import ErrorContainer from "../../../Components/UI/ErrorContainer";
+import { convertTagsAraayObjsShapetoObjects } from "../../../utils/Heplers";
 import { useAlert } from "react-alert";
 import { useRouter } from 'next/router';
 
+
 function EditSingleWil() {
 	const authCtx = useContext(AuthContext);
-	const { wilId } = useParams();
+	const router = useRouter();
+
+	const { wilId } = router.query;
 
 	const { isLoading, error, sendRequest: sendGetEditWilyRequest } = useHttp();
 	const [wily, setWily] = useState({});
+	const [suggestedTags, setSuggestedTags] = useState([]);
 
 	const alert = useAlert();
 
-	const router = useRouter();;
 
 	const getWily = (data) => {
 		// console.log(data)
 		setWily(data.wily)
+	};
+
+    const getTags = (data) => {
+		setSuggestedTags(convertTagsAraayObjsShapetoObjects(data.tags));
 	};
 
 	useEffect(() => {
@@ -34,6 +41,10 @@ function EditSingleWil() {
 				},
 			},
 			getWily
+		);
+        sendGetEditWilyRequest(
+			{ url: `${process.env.NEXT_PUBLIC_API_LINK}/feed/tags` },
+			getTags
 		);
 	}, []);
 
