@@ -61,8 +61,7 @@ function Home(props) {
 		});
 	};
 
-	const deleteWilyHandler = useMemo(
-		() => (wilyId) => {
+	const deleteWilyHandler = (wilyId) => {
 			sendGetWiliesRequest(
 				{
 					url: `${process.env.NEXT_PUBLIC_API_LINK}/feed/wily/${wilyId}`,
@@ -74,9 +73,7 @@ function Home(props) {
 				},
 				deleteWilySuccessed
 			);
-		},
-		[]
-	);
+		};
 
 	const addWilySuccessed = (wilyData) => {
 		mainInputsRef.current.resetInputs();
@@ -88,8 +85,7 @@ function Home(props) {
 		});
 	};
 
-	const addWilyHandler = useMemo(
-		() => (question, answer, isPublic, tags) => {
+	const addWilyHandler = (question, answer, isPublic, tags) => {
 			sendGetWiliesRequest(
 				{
 					url: `${process.env.NEXT_PUBLIC_API_LINK}/feed/wily`,
@@ -107,9 +103,7 @@ function Home(props) {
 				},
 				addWilySuccessed
 			);
-		},
-		[]
-	);
+		};
 
 	const alert = useAlert();
 
@@ -160,6 +154,7 @@ export async function getStaticProps() {
 			wilies: dataWilies.wilies,
 			tags: convertTagsAraayObjsShapetoObjects(dataTags.tags),
 		},
+        revalidate: 10
 	};
 }
 

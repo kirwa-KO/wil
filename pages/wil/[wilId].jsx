@@ -10,6 +10,7 @@ import { useRouter } from 'next/router';
 
 function ShowSingleWil() {
 	const authCtx = useContext(AuthContext);
+    const {token} = authCtx;
 	const { isLoading, error, sendRequest: sendGetDeleteWilyRequest } = useHttp();
 	const [wily, setWily] = useState({});
 	
@@ -29,13 +30,13 @@ function ShowSingleWil() {
 				{
 					url: `${process.env.NEXT_PUBLIC_API_LINK}/feed/wily/${wilId}`,
 					headers: {
-						Authorization: `Bearer ${authCtx.token}`,
+						Authorization: `Bearer ${token}`,
 					},
 				},
 				getWily
 			);
 		}
-	}, [wilId]);
+	}, [wilId, token, sendGetDeleteWilyRequest]);
 
 	const deleteWilySuccessed = (wilyData) => {
 		alert.show(wilyData.message, { type: "sucess", timeout: 3000 });

@@ -46,7 +46,7 @@ function EditSingleWil() {
 			{ url: `${process.env.NEXT_PUBLIC_API_LINK}/feed/tags` },
 			getTags
 		);
-	}, []);
+	});
 
 	const wilyEditedSuccessed = (wilyData) => {
 		alert.show(wilyData.message, { type: "sucess", timeout: 3000 });
