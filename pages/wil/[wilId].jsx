@@ -36,7 +36,7 @@ function ShowSingleWil() {
 				getWily
 			);
 		}
-	}, [wilId, token, sendGetDeleteWilyRequest]);
+	}, [wilId, token]);
 
 	const deleteWilySuccessed = (wilyData) => {
 		alert.show(wilyData.message, { type: "sucess", timeout: 3000 });

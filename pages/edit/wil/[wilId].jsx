@@ -14,39 +14,39 @@ function EditSingleWil() {
 	const authCtx = useContext(AuthContext);
 	const router = useRouter();
 
-	const { wilId } = router.query;
-
 	const { isLoading, error, sendRequest: sendGetEditWilyRequest } = useHttp();
-	const [wily, setWily] = useState({});
+	const [wily, setWily] = useState(null);
 	const [suggestedTags, setSuggestedTags] = useState([]);
 
+    const { wilId } = router.query;
 	const alert = useAlert();
 
-
 	const getWily = (data) => {
-		// console.log(data)
+        console.log(data)
 		setWily(data.wily)
 	};
-
+    
     const getTags = (data) => {
-		setSuggestedTags(convertTagsAraayObjsShapetoObjects(data.tags));
+        setSuggestedTags(convertTagsAraayObjsShapetoObjects(data.tags));
 	};
-
+    
 	useEffect(() => {
-		sendGetEditWilyRequest(
-			{
-				url: `${process.env.NEXT_PUBLIC_API_LINK}/feed/wily/${wilId}`,
-				headers: {
-					Authorization: `Bearer ${authCtx.token}`,
-				},
-			},
-			getWily
-		);
-        sendGetEditWilyRequest(
-			{ url: `${process.env.NEXT_PUBLIC_API_LINK}/feed/tags` },
-			getTags
-		);
-	});
+        if (wilId) {
+            sendGetEditWilyRequest(
+                {
+                    url: `${process.env.NEXT_PUBLIC_API_LINK}/feed/wily/${wilId}`,
+                    headers: {
+                        Authorization: `Bearer ${authCtx.token}`,
+                    },
+                },
+                getWily
+            );
+            sendGetEditWilyRequest(
+                { url: `${process.env.NEXT_PUBLIC_API_LINK}/feed/tags` },
+                getTags
+            );
+        }
+	}, [wilId]);
 
 	const wilyEditedSuccessed = (wilyData) => {
 		alert.show(wilyData.message, { type: "sucess", timeout: 3000 });
@@ -80,11 +80,12 @@ function EditSingleWil() {
 
 	return (
 		<Layout>
-			{error && <ErrorContainer errorMessage={error} />}
-			{!error && isLoading && <LoadingSpinner />}
-			{!error && !isLoading && <InputsContent
+			{ error && <ErrorContainer errorMessage={error} />}
+			{ !error && isLoading && <LoadingSpinner />}
+			{ wily && !error && !isLoading && <InputsContent
 										wily={wily}
 										onEditWily={editWilyHandler}
+                                        tags={suggestedTags}
 										/>}
 
 		</Layout>

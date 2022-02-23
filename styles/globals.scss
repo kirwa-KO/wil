@@ -308,3 +308,7 @@ input:focus {
 .rotate-180 {
     transform: rotate(180deg);
 }
+
+#__react-alert__ > div {
+    left: 50% !important;
+}

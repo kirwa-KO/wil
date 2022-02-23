@@ -6,7 +6,6 @@ import React, {
 import CreatableSelect from "react-select/creatable";
 import InputPreviewMarkdown from "../../UI/InputPreviewMarkdown";
 import { convertTagsObjectsShapetoArray } from "../../../utils/Heplers";
-import Image from "next/image";
 import PrivateIcon from "../../../assets/privateIcon.svg";
 import PublicIcon from "../../../assets/publicIcon.svg";
 

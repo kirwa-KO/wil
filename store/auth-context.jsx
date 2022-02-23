@@ -1,6 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
-
-let logoutTimer;
+import React, { useState, useCallback } from "react";
 
 const AuthContext = React.createContext({
 	showParticuler: false,

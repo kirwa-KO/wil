@@ -1,7 +1,6 @@
 import MarkdownEditor from "../UI/MarkdownEditor"
 
 function InputPreviewMarkdown(props) {
-
 	return (
 		<div className={`row w-100 preview-container ${props.className}`}>
 			<MarkdownEditor 

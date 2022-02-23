@@ -5,8 +5,8 @@ import { useState } from "react";
 import { convertTagsAraayObjsShapetoObjects } from "../../../utils/Heplers";
 import InputPreviewMarkdown from "../../UI/InputPreviewMarkdown";
 import { convertTagsObjectsShapetoArray } from "../../../utils/Heplers";
-// import { ReactComponent as PrivateIcon } from "../../../assets/privateIcon.svg";
-// import { ReactComponent as PublicIcon } from "../../../assets/publicIcon.svg";
+import PrivateIcon from "../../../assets/privateIcon.svg";
+import PublicIcon from "../../../assets/publicIcon.svg";
 import Image from "next/image";
 
 const maxOptions = Number(process.env.NEXT_PUBLIC_MAX_TAGS);
@@ -34,12 +34,12 @@ function InputsContent(props) {
 	const [selectedOption, setSelectedOption] = useState(tagsArrays);
 	const [isPublicWily, setIsPublicWily] = useState(wily.isPublic);
 
-	const onChangeQstInput = (event) => {
-		setQstInput(event.target.value);
+	const onChangeQstInput = (value) => {
+		setQstInput(value);
 	};
 
-	const onChangeAnswerInput = (event) => {
-		setAnswerInput(event.target.value);
+	const onChangeAnswerInput = (value) => {
+		setAnswerInput(value);
 	};
 
 	const onSubmitHandler = (event) => {
@@ -55,7 +55,8 @@ function InputsContent(props) {
 					className="main-inputs bg-dark-darkmode mb-4"
 					onSubmit={onSubmitHandler}
 				>
-					<div className="date-label">
+					<div className="date-label d-flex">
+                        {wily.creator && <Image width={24} height={24} className="mr-1" src={`https://avatars.dicebear.com/api/adventurer/${wily.creator.username}.svg`} alt="" /> }
 						{wily.creator && wily.creator.username} •{" "}
 						{getFormatedDate(wily.updatedAt)}
 					</div>
@@ -105,7 +106,7 @@ function InputsContent(props) {
 								onClick={(_) => setIsPublicWily(true)}
 							>
 								<span>public</span>
-								<Image width={16} height={16} src="/imgs/publicIcon.svg" />
+								<PublicIcon />
 							</div>
 							<div
 								className={`wil-status col-2 ${
@@ -114,7 +115,7 @@ function InputsContent(props) {
 								onClick={(_) => setIsPublicWily(false)}
 							>
 								<span>private</span>
-								<Image width={16} height={16} src="/imgs/privateIcon.svg" />
+								<PrivateIcon />
 							</div>
 							<div className="col-8 d-flex justify-content-end px-0">
 								<button className="main-btn">Edit wily</button>

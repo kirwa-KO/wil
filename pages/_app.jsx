@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { AuthContextProvider } from "../store/auth-context";
-import { transitions, positions, Provider as AlertProvider } from "react-alert";
+import { transitions, Provider as AlertProvider } from "react-alert";
 import "../styles/globals.scss";
 import "md-editor-rt/lib/style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -25,7 +25,7 @@ import "highlight.js/styles/atom-one-dark.css"
 
 const options = {
     // you can also just use 'bottom center'
-    position: positions.TOP_CENTER,
+    // position: positions.TOP_CENTER,
     // timeout: 10000,
     offset: "50px",
     transition: transitions.SCALE,
