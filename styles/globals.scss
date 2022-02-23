@@ -174,7 +174,7 @@ input:focus {
 	justify-content: flex-end;
 	.control-btns {
 		button {
-			background-color: $mainColor;
+			background-color: $blueColor;
 			color: $whiteColor;
 			font-weight: bold;
 			border-radius: 10px;
@@ -182,7 +182,7 @@ input:focus {
 			border: none;
 		}
 		.edit-btn {
-			background-color: $blackColor;
+			background-color: #11cdef;
 		}
 		.delete-btn {
 			background-color: $dangerColor;

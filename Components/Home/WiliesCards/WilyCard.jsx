@@ -3,6 +3,7 @@ import Image from "next/image";
 import MarkdownPreview from "../../UI/MarkdownPreview";
 import Link from 'next/link'
 import getFormatedDate from "../../../utils/FormatDate";
+import PlusIcon from "../../../assets/PlusIcon.svg"
 
 function WilyCard(props) {
 	const [isOpen, setIsOpen] = useState(false);
@@ -22,15 +23,15 @@ function WilyCard(props) {
 
 	return (
 		<div className="wily wily-container">
-			<span className="date-label">
-			    <img width={24} height={24} className="mr-1" src={`https://avatars.dicebear.com/api/adventurer/${wily.creator.username}.svg`} alt="" />
+			<span className="date-label d-flex">
+			    <Image width={24} height={24} className="mr-1" src={`https://avatars.dicebear.com/api/adventurer/${wily.creator.username}.svg`} alt="" />
 				{wily.creator.username} • {getFormatedDate(wily.updatedAt)}
 			</span>
 			<div className="header" onClick={toggleOpen}>
 				<div className="qst-container">
 					<MarkdownPreview value={wily.question} id={`wily_${wily._id}`} />
 				</div>
-				<Image
+				<PlusIcon
 					width={26}
 					height={26}
                     src="/imgs/PlusIcon.svg"

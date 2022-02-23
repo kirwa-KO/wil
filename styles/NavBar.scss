@@ -8,6 +8,9 @@
 	.nav-items {
 		display: flex;
 		align-items: center;
+        svg {
+            cursor: pointer;
+        }
 		.right-items {
 			margin-left: auto;
 			display: flex;

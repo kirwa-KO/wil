@@ -117,11 +117,10 @@ function InputsContent(props) {
 								<Image width={16} height={16} src="/imgs/privateIcon.svg" />
 							</div>
 							<div className="col-8 d-flex justify-content-end px-0">
-								<button className="main-btn">Add a wily</button>
+								<button className="main-btn">Edit wily</button>
 							</div>
 						</div>
 					</div>
-					{/* <button className="main-btn mr-auto">Edit wily</button> */}
 				</form>
 			</div>
 		</div>

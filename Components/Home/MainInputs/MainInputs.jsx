@@ -150,7 +150,7 @@ const MainInput = React.forwardRef((props, ref) => {
                         <PrivateIcon />
 					</div>
 					<div className="col-8 d-flex justify-content-end px-0">
-						<button className="main-btn">Add a wily</button>
+						<button className="main-btn">Add wily</button>
 					</div>
 				</div>
 			</div>

@@ -7,7 +7,12 @@ function AboutContent() {
 			<div className="container content bg-dark-darkmode">
 				<h4>How to use Wil :</h4>
 				<p>
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum, tenetur alias ullam veniam, soluta voluptate libero quibusdam eveniet quam nostrum laborum optio animi eligendi obcaecati exercitationem non explicabo omnis tempore?
+                    Enter the: <br />
+                - Question : a question that you ask your future self, or simply a title. <br />
+                - Answer : the thing you learned <br />
+                - Tags : a way to categorize your wilies <br />
+                - Privacy : Public or Private <br />
+                And finally click the Add wily button to save your wily.
 				</p>
 				<h4>Markdown ref :</h4>
 				<p>

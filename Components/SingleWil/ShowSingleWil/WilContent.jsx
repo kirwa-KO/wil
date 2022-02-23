@@ -1,6 +1,7 @@
 import MarkdownPreview from "../../UI/MarkdownPreview";
 import getFormatedDate from "../../../utils/FormatDate";
 import Link from 'next/link'
+import Image from "next/image";
 
 function WilContent(props) {
 	var { wily } = props;
@@ -13,10 +14,10 @@ function WilContent(props) {
 	return (
 		<div className="wil-content-container">
 			<div className="container wil-content wily-container">
-				<span className="date-label">
-					<img width={24} height={24} className="mr-1" src={`https://avatars.dicebear.com/api/adventurer/${wily.creator.username}.svg`} alt="" />
+				<span className="date-label d-flex">
+                    {wily.creator && <Image width={24} height={24} className="mr-1" src={`https://avatars.dicebear.com/api/adventurer/${wily.creator.username}.svg`} alt="" /> }
 					{wily.creator && wily.creator.username} •{" "}
-					{getFormatedDate(wily.updatedAt)}
+					{wily.creator && getFormatedDate(wily.updatedAt)}
 				</span>
 				<div className="qst-container">
 					<MarkdownPreview value={wily.question} id={`wily_${wily._id}`} />
