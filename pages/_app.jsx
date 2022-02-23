@@ -21,6 +21,7 @@ import "../styles/TeamCard.scss";
 import "../styles/WilContent.scss";
 import "../styles/WiliesCards.scss";
 import "../styles/WilyCard.scss";
+import "highlight.js/styles/atom-one-dark.css"
 
 const options = {
     // you can also just use 'bottom center'

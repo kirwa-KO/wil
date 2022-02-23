@@ -1,4 +1,5 @@
 import Editor from 'md-editor-rt';
+import hljs from 'highlight.js';
 
 function MarkdownPreview({ id, value }) {
 	return (
@@ -8,6 +9,7 @@ function MarkdownPreview({ id, value }) {
 			previewOnly={true}
 			language="en-US"
             editorId={id}
+            hljs={hljs}
 		/>
 	);
 }

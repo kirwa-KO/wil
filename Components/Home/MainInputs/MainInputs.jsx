@@ -7,6 +7,8 @@ import CreatableSelect from "react-select/creatable";
 import InputPreviewMarkdown from "../../UI/InputPreviewMarkdown";
 import { convertTagsObjectsShapetoArray } from "../../../utils/Heplers";
 import Image from "next/image";
+import PrivateIcon from "../../../assets/privateIcon.svg";
+import PublicIcon from "../../../assets/publicIcon.svg";
 
 let answerSectionHeight = null;
 
@@ -136,7 +138,7 @@ const MainInput = React.forwardRef((props, ref) => {
 						onClick={(_) => setIsPublicWily(true)}
 					>
 						<span>public</span>
-						<Image width={16} height={16} src="/imgs/publicIcon.svg" />
+						<PublicIcon />
 					</div>
 					<div
 						className={`wil-status col-2 ${
@@ -145,7 +147,7 @@ const MainInput = React.forwardRef((props, ref) => {
 						onClick={(_) => setIsPublicWily(false)}
 					>
 						<span>private</span>
-                        <Image width={16} height={16} src="/imgs/privateIcon.svg" />
+                        <PrivateIcon />
 					</div>
 					<div className="col-8 d-flex justify-content-end px-0">
 						<button className="main-btn">Add a wily</button>

@@ -1,6 +1,7 @@
 import AuthContext from "../../store/auth-context";
 import { useContext } from "react";
 import Editor from 'md-editor-rt';
+import hljs from 'highlight.js';
 
 function MarkdownEditor(props) {
 	const authCtx = useContext(AuthContext);
@@ -16,6 +17,7 @@ function MarkdownEditor(props) {
 				height: props.height,
 			}}
 			editorId={props.id}
+            hljs= {hljs}
 		/>
 	);
 };

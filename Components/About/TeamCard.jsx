@@ -12,13 +12,13 @@ function TeamCard(props) {
 				<p className="text-center">{props.role}</p>
 				<div className="social-media">
 					{props.github && <a href={props.github} target="_blank" rel="noopener noreferrer">
-						<Image width={24} height={24} src="/imgs/icons/Github.svg" alt="github icon" />
+						<Github />
 					</a>}
 					{props.twitter && <a href={props.twitter} target="_blank" rel="noopener noreferrer">
-						<Image width={24} height={24} src="/imgs/icons/Twitter.svg" alt="twitter icon" />
+						<Twitter />
 					</a>}
 					{props.instagram && <a href={props.instagram} target="_blank" rel="noopener noreferrer">
-						<Image width={24} height={24} src="/imgs/icons/Instagram.svg" alt="instagram icon" />
+						<Instagram />
 					</a>
 					}
 				</div>

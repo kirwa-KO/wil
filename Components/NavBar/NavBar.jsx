@@ -2,7 +2,8 @@ import Link from 'next/link'
 import { useContext } from "react";
 import AuthContext from "../../store/auth-context";
 import CustomStyle from "./CustomStyle";
-import Image from 'next/image'
+import Logo from "../../assets/logo.svg";
+
 
 function NavBar() {
 	const authCtx = useContext(AuthContext);
@@ -12,7 +13,7 @@ function NavBar() {
 		<div className="navbar-container">
 			<nav className="container nav-items">
 				<Link href="/" passHref>
-					<Image src="/imgs/logo.svg" height={34} width={132} alt='wil logo' />
+                    <Logo  />
 				</Link>
 				{!isloggedIn && (
 					<div className="right-items">

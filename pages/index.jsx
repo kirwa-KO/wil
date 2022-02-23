@@ -36,7 +36,7 @@ function Home(props) {
 				getWilies
 			);
 		}
-	});
+	}, []);
 
 	const deleteWilySuccessed = (wilyData) => {
 		if (isAlertExistBefore) alert.removeAll();
@@ -138,7 +138,7 @@ export async function getStaticProps() {
 			wilies: dataWilies.wilies,
 			tags: convertTagsAraayObjsShapetoObjects(dataTags.tags),
 		},
-        revalidate: 10
+		revalidate: 60
 	};
 }
 
