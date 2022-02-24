@@ -1,13 +1,11 @@
-import getFormatedDate from "../../../utils/FormatDate";
 import CreatableSelect from "react-select/creatable";
-// import Tags from "../../../data/qstsAnswers.json";
 import { useState } from "react";
 import { convertTagsAraayObjsShapetoObjects } from "../../../utils/Heplers";
 import InputPreviewMarkdown from "../../UI/InputPreviewMarkdown";
 import { convertTagsObjectsShapetoArray } from "../../../utils/Heplers";
 import PrivateIcon from "../../../assets/privateIcon.svg";
 import PublicIcon from "../../../assets/publicIcon.svg";
-import Image from "next/image";
+import WilyCardHeader from "../../UI/WilyCardHeader";
 
 const maxOptions = Number(process.env.NEXT_PUBLIC_MAX_TAGS);
 const maxQstChars = Number(process.env.NEXT_PUBLIC_MAX_QST_CHARS);
@@ -55,11 +53,7 @@ function InputsContent(props) {
 					className="main-inputs bg-dark-darkmode mb-4"
 					onSubmit={onSubmitHandler}
 				>
-					<div className="date-label d-flex">
-                        {wily.creator && <Image width={24} height={24} className="mr-1" src={`https://avatars.dicebear.com/api/adventurer/${wily.creator.username}.svg`} alt="" /> }
-						{wily.creator && wily.creator.username} •{" "}
-						{getFormatedDate(wily.updatedAt)}
-					</div>
+					<WilyCardHeader wily={wily} width={24} height={24} />
 					<label htmlFor="">Question</label>
 					<InputPreviewMarkdown
 						onChangeInput={onChangeQstInput}

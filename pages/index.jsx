@@ -126,7 +126,10 @@ export async function getStaticProps() {
 	const responseWilies = await fetch(
 		`${process.env.NEXT_PUBLIC_API_LINK}/feed/wilies/public`
 	);
+
+    
 	const dataWilies = await responseWilies.json();
+    console.log(dataWilies.wilies[0]);
 
 	const responseTags = await fetch(
 		`${process.env.NEXT_PUBLIC_API_LINK}/feed/tags`

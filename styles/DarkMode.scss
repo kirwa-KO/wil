@@ -44,6 +44,18 @@
 	svg path {
 		fill: $secondColor !important;
 	}
+
+    .react-select-pre__multi-value__remove {
+        svg.css-tj5bde-Svg path {
+            fill: $blackColor !important;
+        }
+    }
+    .react-select-pre__multi-value__remove:hover {
+        svg.css-tj5bde-Svg path {
+            fill: $secondColor !important;
+        }
+    }
+
 	hr,
 	.spot {
 		background-color: $secondColor !important;

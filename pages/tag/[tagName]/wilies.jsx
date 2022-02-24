@@ -3,10 +3,10 @@ import WiliesCards from "../../../Components/Home/WiliesCards/WiliesCards";
 import { useContext } from "react";
 import AuthContext from "../../../store/auth-context";
 import useHttp from "../../../hooks/useHttp";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAlert } from "react-alert";
 import LoadingSpinner from "../../../Components/UI/LoadingSpinner";
-import { convertTagsAraayObjsShapetoObjects } from "../../../utils/Heplers";
+import { convertUsersAraayObjsShapetoObjects, changeUserPlaceinArray } from "../../../utils/Heplers";
 import { useRouter } from "next/router";
 
 let isAlertExistBefore = false;
@@ -15,7 +15,13 @@ function OtherUserWilies(props) {
 	const authCtx = useContext(AuthContext);
 	const { isLoading, error, sendRequest: sendGetWiliesRequest } = useHttp();
 	const [wilies, setWilies] = useState(props.wilies);
+    const [suggestedTags, setSuggestedTags] = useState(props.suggestedTags);
 	const router = useRouter();
+
+    useEffect(() => {
+        setSuggestedTags(prevSuggestedTags => changeUserPlaceinArray(prevSuggestedTags, authCtx.username, 0));
+
+    }, [])
 
 	const deleteWilySuccessed = (wilyData) => {
 		if (isAlertExistBefore) alert.removeAll();
@@ -39,6 +45,7 @@ function OtherUserWilies(props) {
 		);
 	};
 
+
 	const alert = useAlert();
 
 	if (error) {
@@ -52,42 +59,44 @@ function OtherUserWilies(props) {
 			<WiliesCards
 				deleteWilyHandler={deleteWilyHandler}
 				wilies={wilies}
-				suggestedTags={props.suggestedTags}
+				suggestedTags={suggestedTags}
+                searchByUsers={true}
 			/>
 		</Layout>
 	);
 }
 
 export async function getStaticProps({ params }) {
-	const { tagId } = params;
+	const { tagName } = params;
 	const responseWilies = await fetch(
-		`${process.env.NEXT_PUBLIC_API_LINK}/feed/wilies/${tagId}`
+		`${process.env.NEXT_PUBLIC_API_LINK}/feed/tag/${tagName}`
 	);
 	const dataWilies = await responseWilies.json();
 
-	const responseTags = await fetch(
-		`${process.env.NEXT_PUBLIC_API_LINK}/feed/tags`
+	const responseUsers = await fetch(
+		`${process.env.NEXT_PUBLIC_API_LINK}/feed/users`
 	);
-	const dataTags = await responseTags.json();
+
+	const dataUsers = await responseUsers.json();
 
 	return {
 		props: {
 			wilies: dataWilies.wilies,
-			suggestedTags: convertTagsAraayObjsShapetoObjects(dataTags.tags),
+			suggestedTags: convertUsersAraayObjsShapetoObjects(dataUsers.users),
 		},
 	};
 }
 
 export const getStaticPaths = async (_) => {
 	const response = await fetch(
-		`${process.env.NEXT_PUBLIC_API_LINK}/feed/users`
+		`${process.env.NEXT_PUBLIC_API_LINK}/feed/tags`
 	);
 	const data = await response.json();
 	return {
 		fallback: "blocking",
-		paths: data.users.map(user => ({
+		paths: data.tags.map(tag => ({
 			params : {
-				username: user.username
+				tagName: tag.name
 			}
 		}))
 	};

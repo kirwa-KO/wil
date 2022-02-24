@@ -14,10 +14,16 @@ function WiliesCards(props) {
 	const { wilies } = props;
 	const [filteredWilies, setFilteredWilies] = useState([]);
 	const [sort, setSort] = useState("asc");
-	const [searchTags, setSearchTags] = useState(null);
+	const [searchField, setSearchField] = useState(null);
 
 	useEffect(() => {
-		setFilteredWilies(wilies);
+        setFilteredWilies(() => {
+            return wilies.sort((a, b) => {
+                if (a.updatedAt > b.updatedAt) return -1;
+                else if (a.updatedAt < b.updatedAt) return 1;
+                else return 0;
+            });
+        });
 	}, [wilies]);
 
 	const changeSortHandler = useMemo(() => () => {
@@ -47,8 +53,6 @@ function WiliesCards(props) {
 		});
 	}, []);
 
-	// console.log(searchTags)
-
 	const changeFilteredTags = (tags) => {
 		var filterTags = convertTagsObjectsShapetoArray(tags);
 		if (filterTags.length <= 0) {
@@ -66,7 +70,22 @@ function WiliesCards(props) {
 				});
 			});
 		}
-		setSearchTags(tags);
+		setSearchField(tags);
+	};
+
+    const changeFilteredUsers = (users) => {
+        var filterUsers = convertTagsObjectsShapetoArray(users);
+		if (filterUsers.length <= 0) {
+            setFilteredWilies(wilies);
+		}
+		else {
+            setFilteredWilies(() => {
+                return wilies.filter((wily) => {
+					return filterUsers.includes(wily.creator.username);
+				});
+			});
+		}
+		setSearchField(users);
 	};
 
 	return (
@@ -75,9 +94,10 @@ function WiliesCards(props) {
 				sort={sort}
 				setSort={setSort}
 				changeSortHandler={changeSortHandler}
-				searchTags={searchTags}
-				changeFilteredTags={changeFilteredTags}
+				searchTags={searchField}
+				changeFilteredTags={props.searchByUsers ? changeFilteredUsers : changeFilteredTags}
 				suggestedTags={props.suggestedTags}
+                placeHolders={props.searchByUsers ? "Search by users" : "Search by tags"}
 			/>
 			<div className="wilies-container container">
 				{filteredWilies && filteredWilies.length > 0 && filteredWilies.map(function qstAnswerMapped(wily) {

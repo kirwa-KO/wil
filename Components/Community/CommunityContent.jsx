@@ -7,7 +7,7 @@ function CommunityContent(props) {
 				<div className="row">
 					{
 						props.usersWilies && props.usersWilies.map((user) => {
-							return <UserCard key={user._id} username={user.username} wiliesCount={user.wilies.length} />
+							return <UserCard key={user._id} username={user.username} avatar={user.avatar} wiliesCount={user.wilies.length} />
 						})
 					}
 				</div>

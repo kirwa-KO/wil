@@ -1,9 +1,8 @@
 import Layout from "../../../Components/Layouts/Layout";
 import WiliesCards from "../../../Components/Home/WiliesCards/WiliesCards";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import AuthContext from "../../../store/auth-context";
 import useHttp from "../../../hooks/useHttp";
-import { useState } from "react";
 import { useAlert } from "react-alert";
 import LoadingSpinner from "../../../Components/UI/LoadingSpinner";
 import { convertTagsAraayObjsShapetoObjects } from "../../../utils/Heplers";
@@ -17,6 +16,8 @@ function OtherUserWilies(props) {
 	const [wilies, setWilies] = useState(props.wilies);
 	const router = useRouter();
 
+    const { username } = router.query;
+
 	const deleteWilySuccessed = (wilyData) => {
 		if (isAlertExistBefore) alert.removeAll();
 		alert.show(wilyData.message, { type: "sucess", timeout: 3000 });
@@ -24,6 +25,24 @@ function OtherUserWilies(props) {
 			return prevWilies.filter((wily) => wily._id !== wilyData.wily._id);
 		});
 	};
+
+    const getWilies = (data) => {
+		setWilies(data.wilies);
+	};
+
+	useEffect(() => {
+        if (authCtx.isLoggedIn === true && username == authCtx.username) {
+            sendGetWiliesRequest(
+                { 
+                    url: `${process.env.NEXT_PUBLIC_API_LINK}/feed/wilies/${username}`,
+                    headers: {
+                        Authorization: `Bearer ${authCtx.token}`,
+                    }
+            },
+                getWilies
+            );
+        }
+	}, []);
 
 	const deleteWilyHandler = (wilyId) => {
 		sendGetWiliesRequest(

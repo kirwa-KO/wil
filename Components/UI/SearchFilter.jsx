@@ -26,7 +26,7 @@ function SearchFilter(props) {
 				styles={style}
 				className="react-select"
 				classNamePrefix="react-select-pre"
-				placeholder="Search by tags "
+				placeholder={props.placeHolders}
 			/>
 			<div
 				className="sort-date bg-dark-darkmode"
