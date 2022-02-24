@@ -33,7 +33,7 @@ function WilContent(props) {
 					props.authenticatedUsername === wily.creator.username && (
 						<div className="btns-container">
 							<div className="control-btns">
-								<Link href={`/edit/wil/${wily._id}`}>
+								<Link passHref href={`/edit/wil/${wily._id}`}>
 									<button className="brdr-2-dark edit-btn">
 										edit
 									</button>

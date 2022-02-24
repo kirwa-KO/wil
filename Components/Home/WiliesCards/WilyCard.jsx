@@ -49,8 +49,8 @@ function WilyCard(props) {
                 }
             >
                 {wily.tags.map((tag, index) => (
-                    <Link href={`/tag/${tag.name}/wilies`}>
-                        <span key={index} className="tag">
+                    <Link passHref key={tag._id} href={`/tag/${tag.name}/wilies`}>
+                        <span key={tag._id} className="tag">
                             {tag.name}
                         </span>
                     </Link>
@@ -80,14 +80,14 @@ function WilyCard(props) {
                 </div>
                 <div className="btns-container">
                     <div className="control-btns">
-                        <Link href={`/wil/${wily._id}`}>
+                        <Link passHref href={`/wil/${wily._id}`}>
                             <button className="brdr-2-dark">
                                 open as page
                             </button>
                         </Link>
                         {props.isLoggedIn
                             && wily.creator.username === props.authenticatedUsername
-                            && <Link href={`/edit/wil/${wily._id}`}>
+                            && <Link passHref href={`/edit/wil/${wily._id}`}>
                                 <button className="brdr-2-dark edit-btn">
                                     edit
                                 </button>

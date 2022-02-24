@@ -22,7 +22,6 @@ function EditSingleWil() {
 	const alert = useAlert();
 
 	const getWily = (data) => {
-        console.log(data)
 		setWily(data.wily)
 	};
     

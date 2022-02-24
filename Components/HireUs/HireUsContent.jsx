@@ -2,7 +2,7 @@
 function HireUsContent() {
 	return (
 		<div className="hire-us">
-			<h4>you can't</h4>
+			<h4>you can&apos;t</h4>
 		</div>
 	);
 }

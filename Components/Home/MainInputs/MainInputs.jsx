@@ -157,4 +157,6 @@ const MainInput = React.forwardRef((props, ref) => {
 	);
 });
 
+MainInput.displayName = "MainInput";
+
 export default React.memo(MainInput);

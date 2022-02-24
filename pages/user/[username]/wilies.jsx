@@ -79,7 +79,6 @@ function OtherUserWilies(props) {
 
 export async function getStaticProps({ params }) {
 	const { username } = params;
-	console.log(username);
 	const responseWilies = await fetch(
 		`${process.env.NEXT_PUBLIC_API_LINK}/feed/wilies/${username}`
 	);

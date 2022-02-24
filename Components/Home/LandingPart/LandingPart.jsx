@@ -1,3 +1,4 @@
+import LadingImg from "../../../assets/ladingImg.svg";
 
 function LandingPart() {
 	return (
@@ -37,7 +38,7 @@ function LandingPart() {
 						<p className="never-forget">Never forget what you learn again.</p>
 					</div>
 					<div className="col-md-6 mt-sm-4 mt-0 left-section">
-						<img className="img-fluid" src="/imgs/ladingImg.svg" alt="" />
+						<LadingImg />
 					</div>
 				</div>
 				<p className="ps">PS: wil is still in development, so for a <strong>limited period</strong>, you can sign up now for <strong>Free</strong> and try it.
