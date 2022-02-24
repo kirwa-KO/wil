@@ -5,6 +5,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    // height: 100vh;
 }
 
 a {
@@ -232,6 +233,7 @@ input:focus {
 }
 
 .content-container {
+    padding-bottom: 2rem;
 	.content {
 		background-color: $whiteColor;
 		margin-top: 5rem;

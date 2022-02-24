@@ -21,10 +21,9 @@ function EditUser() {
 
 	
 	const EditUserSuccess = (userData) => {
-		// if (isAlertExistBefore) alert.removeAll();
-		// authCtx.login(userData.token, userData.userId, userData.username);
-		// router.push("/");
-        console.log(userData);
+		if (isAlertExistBefore) alert.removeAll();
+            alert.show(userData.message, { type: "sucess", timeout: 3000 });
+		router.push("/");
 	};
 
 	const submitLoginFormHandler = (event) => {
