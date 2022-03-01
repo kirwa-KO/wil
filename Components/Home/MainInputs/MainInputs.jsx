@@ -11,10 +11,10 @@ import PublicIcon from "../../../assets/publicIcon.svg";
 
 let answerSectionHeight = null;
 
-const maxOptions = Number(process.env.NEXT_MAX_TAGS);
+const maxOptions = Number(process.env.NEXT_PUBLIC_MAX_TAGS);
 
-const maxQstChars = Number(process.env.NEXT_MAX_QST_CHARS);
-const maxAnswerChars = Number(process.env.NEXT_MAX_ANSWER_CHARS);
+const maxQstChars = Number(process.env.NEXT_PUBLIC_MAX_QST_CHARS);
+const maxAnswerChars = Number(process.env.NEXT_PUBLIC_MAX_ANSWER_CHARS);
 
 const style = {
 	control: (base) => ({
@@ -23,8 +23,11 @@ const style = {
 	}),
 };
 
-const isValidNewOption = (inputValue, selectValue) =>
-	inputValue.length > 0 && selectValue.length < maxOptions;
+const isValidNewOption = (inputValue, selectValue) => {
+    // console.log(maxOptions);
+	return (inputValue.length > 0 && selectValue.length < maxOptions)
+}
+    ;
 
 const MainInput = React.forwardRef((props, ref) => {
 	const [qstInput, setQstInput] = useState();
